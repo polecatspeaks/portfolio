@@ -1,0 +1,6 @@
+# LF everywhere, index and working tree. A kit that teaches "kill the noise that hides
+# real warnings" should not emit a CRLF warning on every commit of its own.
+* text=auto eol=lf
+*.md  text eol=lf
+*.sh  text eol=lf
+*.ps1 text eol=lf
