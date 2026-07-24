@@ -28,8 +28,9 @@
   font-size: 0.9rem;
 }
 
-.card img {
-  max-width: 100%;
+.screenshot {
+  width: 100%;
+  height: auto;
   border-radius: 6px;
   border: 1px solid var(--border);
   margin-top: 0.75rem;
