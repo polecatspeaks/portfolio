@@ -38,19 +38,28 @@ polish (Law 6).
   currently healthy (Law 4) - don't build on top of an unnoticed broken prod.
 - **Session end:** say plainly what changed, what (if anything) is left half-done, and
   whether prod is known-good.
-- **Live deploy mechanism (as configured, not as originally planned):** Vercel's
-  Production Branch is `main` itself - every push/merge to `main` deploys straight to
-  production, with no separate Preview-then-promote branch. The plan's original design
-  (a dedicated `production` branch as the Production Branch, promoted after Preview
-  confirmation) was deliberately dropped as unneeded overhead for a one-person static
-  site; the `production` branch was deleted. `GITHUB_TOKEN` (a fine-grained PAT scoped
-  to read-only Contents access on the private `STAR` repo) is set in Vercel Project
-  Settings -> Environment Variables and required at build time - its absence fails the
-  build closed (see `lib/env.ts`), which is by design, not a bug.
-- **Live URL:** `https://star-stack.io/` (custom domain attached to the Vercel project).
-  Verified live: `/`, `/experience`, and `/projects` all return 200, `/projects` renders
-  real project content, and no secret/token/internal SHA field leaks into the served
-  HTML.
+- **Live deploy mechanism (revised - manual promotion gate, reversing the earlier
+  Task E.2 decision):** Vercel's Production Branch is no longer set to auto-promote
+  every `main` push straight to Production. Every push/merge to `main` now builds a
+  **Preview** deployment only, with its own preview URL - that preview URL is the
+  place to actually load and check a change before it goes live. Going live requires
+  an explicit, manual **"Promote to Production"** action in the Vercel dashboard.
+  This restores the real red/green-style safety gate the original plan's
+  Preview-then-promote design was after (the earlier "just let `main` deploy straight
+  to prod, drop the extra step" simplification - recorded in the prior version of
+  this section - is now itself superseded; kept simple is not the same as kept safest,
+  and the owner decided the manual gate is worth the one extra click). `GITHUB_TOKEN`
+  (a fine-grained PAT scoped to read-only Contents access on the private `STAR` repo)
+  is set in Vercel Project Settings -> Environment Variables and required at build
+  time - its absence fails the build closed (see `lib/env.ts`), which is by design,
+  not a bug.
+- **Live URL:** `https://star-stack.io/` (custom domain attached to the Vercel
+  project, excluded from Vercel's Deployment Protection login wall - unlike the
+  default `*.vercel.app` alias URLs, which now require a Vercel account login to
+  view directly). Real content was verified live here as of the pre-manual-promotion
+  workflow; re-verify after each future promotion, per the verification-honesty rule
+  above - don't assume a promoted deploy matches what was checked on its preview URL
+  without loading the actual live domain again.
 - **Visual design direction:** `docs/design-direction.md` records the agreed dark,
   minimal, dev-tool-styled direction (colors, type, layout) for implementing CSS. It's
   a right-sized reference doc, not a ladder design doc - styling changes don't need
