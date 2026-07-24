@@ -21,3 +21,18 @@ test('projects page exports metadata with a real page title and Open Graph block
   expect(source).toMatch(/title:\s*['"]Projects['"]/);
   expect(source).toMatch(/openGraph:/);
 });
+
+test('projects page uses next/image for private-project screenshots instead of raw <img> (issue #7)', () => {
+  const source = require('fs').readFileSync(require.resolve('./page.tsx'), 'utf8');
+  expect(source).toMatch(/import Image from ['"]next\/image['"]/);
+  expect(source).not.toMatch(/<img\b/);
+  expect(source).toMatch(/<Image\b/);
+});
+
+test('screenshot Image elements declare explicit width and height (required by next/image, avoids CLS)', () => {
+  const source = require('fs').readFileSync(require.resolve('./page.tsx'), 'utf8');
+  const imageBlockMatch = source.match(/<Image\b[\s\S]*?\/>/);
+  expect(imageBlockMatch).not.toBeNull();
+  expect(imageBlockMatch![0]).toMatch(/width=\{?\d+/);
+  expect(imageBlockMatch![0]).toMatch(/height=\{?\d+/);
+});

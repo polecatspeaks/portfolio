@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getFeaturedRepos } from '../../lib/github.server';
 import { getPrivateProjects } from '../../lib/private-projects.server';
 import styles from './page.module.css';
@@ -45,8 +46,21 @@ export default async function ProjectsPage() {
             <h3>{title}</h3>
             <p className={styles.date}>{date}</p>
             <p>{summary}</p>
+            {/* width/height are the real pixel dimensions of public/screenshots/star-ui.png
+                (the only screenshot that exists today), confirmed via the file's own PNG
+                header, per next/image's documented responsive-image pattern (intrinsic
+                width/height + CSS width:100%/height:auto in module.css). If a future
+                screenshot with a different aspect ratio is added, this will need updating -
+                not fabricated to fit an assumed generic ratio. */}
             {screenshots.map((src) => (
-              <img key={src} src={src} alt={`${title} screenshot`} />
+              <Image
+                key={src}
+                src={src}
+                alt={`${title} screenshot`}
+                width={1912}
+                height={911}
+                className={styles.screenshot}
+              />
             ))}
           </article>
         ))}
