@@ -1,8 +1,10 @@
 import 'server-only';
 import { validateGithubRepo, type GithubRepo } from './github.schema';
+import { assertGithubTokenConfigured } from './env';
 import featured from '../data/featured-repos.json';
 
 export async function getFeaturedRepos(): Promise<GithubRepo[]> {
+  assertGithubTokenConfigured();
   const results: GithubRepo[] = [];
   for (const { repo } of featured as Array<{ repo: string }>) {
     const response = await fetch(`https://api.github.com/repos/${repo}`, {
