@@ -1,4 +1,8 @@
 :root {
+  /* --accent, --bg, and --surface MUST be kept identical to the hex literals in
+     lib/contrast.test.ts (Task F.1/F.2 cross-reference - the contrast gate's hex
+     literals are not automatically derived from these tokens, so a human editing
+     either file must see this comment). */
   --bg: #0a0a0c;
   --surface: #141417;
   --border: #26262b;
