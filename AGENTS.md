@@ -51,6 +51,10 @@ polish (Law 6).
   Verified live: `/`, `/experience`, and `/projects` all return 200, `/projects` renders
   real project content, and no secret/token/internal SHA field leaks into the served
   HTML.
+- **Visual design direction:** `docs/design-direction.md` records the agreed dark,
+  minimal, dev-tool-styled direction (colors, type, layout) for implementing CSS. It's
+  a right-sized reference doc, not a ladder design doc - styling changes don't need
+  the full ladder per the right-sizing rule above.
 
 ## Not yet adopted (wait for the trigger)
 
