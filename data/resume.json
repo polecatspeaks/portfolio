@@ -1,0 +1,129 @@
+{
+  "summary": "AI-Driven DevOps & MLOps Lead | Cloud Infrastructure | Automation Engineering. Seasoned professional with extensive experience in engineering scalable cloud platforms, intelligent automation solutions, and resilient production systems by combining deep infrastructure expertise with emerging LLM technologies. Instrumental in DevOps engineering, MLOps architecture, cloud-native platforms, and AI-powered automation across enterprise environments.",
+  "contact": {
+    "email": "mannchristophers@gmail.com",
+    "links": ["https://www.linkedin.com/in/christopherscottmann"]
+  },
+  "workHistory": [
+    {
+      "employer": "Comcast Corporation",
+      "title": "Engineer 3, Software Development & Engineering - VIPER Team",
+      "start": "2017",
+      "end": "2026",
+      "bullets": [
+        "Enable enterprise-scale video delivery by supporting manifest generation, fragment distribution, Apache content serving, Widevine DRM integration, linear television, and IP-based streaming infrastructure.",
+        "Sustain highly available production environments powering Linear TV, VOD, DVR, and Emergency Alert Systems across Comcast partner networks throughout eight years of operational ownership.",
+        "Provide technical leadership across DevOps, cloud infrastructure, AI automation, MLOps, platform engineering, production operations, and continuous service optimization across global business-critical environments.",
+        "Partner with security, software engineering, infrastructure, and operations teams to strengthen platform resilience, improve service reliability, and accelerate enterprise software delivery.",
+        "Establish intelligent observability through scalable metrics, proactive alerting, automated incident detection, and resilient monitoring architecture enabling business-critical production services.",
+        "Pioneered two AI-powered DevOps automation solutions using Python, LLM agents, SQLite, and PostgreSQL, transforming security remediation workflows while reducing engineering effort and expediting turnaround from three weeks to four days.",
+        "Conceived YUT, autonomous patch orchestration platform supporting over 10K servers across Comcast, Cox, Rogers, Shaw, and Sky, utilizing intelligent automation to reduce routine patch deployment by 60-70% (10 days to 2-3 days), accelerate critical CVE deployment from 4-5 weeks to 4-5 days, and cut incident response time by 40%.",
+        "Incorporated Ansible, Docker, PostgreSQL, GitHub Actions, enterprise rollback capability, package dependency resolution, security validation, and Test-Driven Development into YUT, achieving 89% automated test coverage across 213 test cases before successful production deployment in September 2025.",
+        "Delivered SLOT, ML-powered observability platform automating SLI/SLO monitoring for five international partner networks through FastAPI, PostgreSQL, InfluxDB, Kubernetes (three-replica HA), Prophet, LSTM, and advanced time-series forecasting.",
+        "Streamlined continuous processing of 311 operational metrics each day while introducing predictive analytics, anomaly detection, automated correlation, and AI-assisted root-cause recommendations, eliminating one to three engineering days of manual analysis per incident and earning production approval for March 2026.",
+        "Supervised 15-member onshore and offshore engineering team operating 24x7x365 support while consistently maintaining 99.5% SLI/SLO service performance across mission-critical infrastructure.",
+        "Accelerated enterprise AI adoption by establishing LLM strategy, producing proofs-of-concept, facilitating technical workshops, and coaching senior engineers on modern agentic software development practices.",
+        "Recovered Emergency Alert System infrastructure following Redis security breach by coordinating enterprise-wide response, rebuilding 80 production servers within 20 hours, and preserving complete data integrity."
+      ]
+    },
+    {
+      "employer": "Objective Zero Foundation",
+      "title": "Chief Technology Officer (Volunteer)",
+      "start": "2017",
+      "end": "2018",
+      "bullets": [
+        "Aligned technical priorities, stakeholder expectations, product planning, and delivery milestones to ensure program success.",
+        "Upheld HIPAA compliance, cybersecurity standards, and data protection within nonprofit technology initiatives.",
+        "Guided fully remote engineering organization through architectural oversight, technical governance, and day-to-day technology leadership.",
+        "Transformed product concepts and designs into production application while serving as Volunteer Chief Technology Officer.",
+        "Defined technology strategy supporting mobile platform dedicated to veteran suicide prevention.",
+        "Directed native iOS and Android application delivery by coordinating offshore development teams and milestone execution."
+      ]
+    },
+    {
+      "employer": "Sidecar Interactive",
+      "title": "Senior DevOps Engineer / DevOps Team Lead",
+      "start": "2016",
+      "end": "2016",
+      "bullets": [
+        "Modernized bespoke hosting environment into enterprise hybrid cloud and on-premises platform through infrastructure transformation.",
+        "Administered DevOps operations, infrastructure, automation, and platform availability across business-critical services.",
+        "Collaborated with development teams to improve software delivery lifecycle, release quality, and deployment consistency.",
+        "Built enterprise DevOps capability by recruiting, scaling, and developing engineering team supporting production infrastructure.",
+        "Coached three DevOps engineers managing automation, administration, and operations across over 200 production servers.",
+        "Orchestrated VMware data center migration, reducing colocation footprint while improving infrastructure efficiency and scalability."
+      ]
+    },
+    {
+      "employer": "Intermedix",
+      "title": "Senior Systems Engineer / DevOps Engineer",
+      "start": "2015",
+      "end": "2016",
+      "bullets": [
+        "Oversaw VMware, Nimble Storage, and A10 environments operating highly available production infrastructure.",
+        "Maintained enterprise systems, virtualized infrastructure, production environments, and day-to-day operational support activities.",
+        "Collaborated across engineering teams to optimize platform performance, service availability, and infrastructure reliability.",
+        "Revitalized Business Intelligence ecosystem, improving scalability, resilience, stability, and reporting performance.",
+        "Designed enterprise Linux deployment architecture standardizing infrastructure provisioning and engineering practices.",
+        "Strengthened Business Intelligence platform reliability while contributing to successful enterprise data center relocation."
+      ]
+    },
+    {
+      "employer": "Walking Thumbs LLC",
+      "title": "Systems Administrator",
+      "start": "",
+      "end": null,
+      "bullets": ["Redesigned infrastructure, migrated AWS, and automated Chef configurations."]
+    },
+    {
+      "employer": "Electronic Arts (EA)",
+      "title": "Infrastructure Engineer",
+      "start": "",
+      "end": null,
+      "bullets": ["Engineered experimental gaming infrastructure and technology projects."]
+    },
+    {
+      "employer": "Oracle USA",
+      "title": "Oracle Transportation Management Specialist",
+      "start": "",
+      "end": null,
+      "bullets": ["Implemented enterprise deployment and production support."]
+    },
+    {
+      "employer": "CompuCom / GE Healthcare",
+      "title": "Windows & Virtualization Engineer",
+      "start": "",
+      "end": null,
+      "bullets": ["Reduced server delivery from 90 days to four days."]
+    },
+    {
+      "employer": "Stonebridge Bank / Legg Mason / Progress Bank",
+      "title": "Infrastructure Engineer",
+      "start": "",
+      "end": null,
+      "bullets": ["Administered enterprise banking infrastructure operations."]
+    },
+    {
+      "employer": "iCarnegie Global Learning / Haddon House Food Products / Xerox Connect",
+      "title": "Infrastructure Consultant",
+      "start": "",
+      "end": null,
+      "bullets": ["Refined virtualization infrastructure."]
+    }
+  ],
+  "skills": [
+    "DevOps Engineering & Leadership",
+    "Cloud Infrastructure Architecture",
+    "Kubernetes Platform Engineering",
+    "MLOps Pipeline Development",
+    "AI Automation Engineering",
+    "Infrastructure As Code",
+    "CI/CD Pipeline Automation",
+    "LLM Agentic Development",
+    "Observability Platform Engineering",
+    "Machine Learning Operations",
+    "Enterprise Systems Integration",
+    "Technical Team Leadership"
+  ],
+  "education": []
+}
