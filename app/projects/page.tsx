@@ -1,5 +1,6 @@
 import { getFeaturedRepos } from '../../lib/github.server';
 import { getPrivateProjects } from '../../lib/private-projects.server';
+import styles from './page.module.css';
 
 // Explicit, not relied-upon-by-default: forces this route to be statically rendered
 // at build time only (Next.js 14's documented `dynamic` route segment config). This
@@ -15,23 +16,23 @@ export default async function ProjectsPage() {
   ]);
 
   return (
-    <main>
+    <main className={styles.main}>
       <h1>Projects</h1>
-      <section>
+      <section className={styles.section}>
         <h2>Public</h2>
         {publicRepos.map((repo) => (
-          <article key={repo.full_name}>
-            <h3><a href={repo.html_url}>{repo.full_name}</a></h3>
+          <article key={repo.full_name} className={styles.card}>
+            <h3><a href={repo.html_url} className={styles.repoName}>{repo.full_name}</a></h3>
             <p>{repo.description}</p>
           </article>
         ))}
       </section>
-      <section>
+      <section className={styles.section}>
         <h2>Selected private work</h2>
         {privateProjects.map(({ title, summary, screenshots, date }) => (
-          <article key={title}>
+          <article key={title} className={styles.card}>
             <h3>{title}</h3>
-            <p>{date}</p>
+            <p className={styles.date}>{date}</p>
             <p>{summary}</p>
             {screenshots.map((src) => (
               <img key={src} src={src} alt={`${title} screenshot`} />
