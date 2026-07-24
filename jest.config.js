@@ -1,15 +1,19 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  // '/.worktrees/' excludes git worktrees used for in-progress branch work
-  // (e.g. `.worktrees/car-*`) - without this, `npm test` from the main
+  // '<rootDir>/.worktrees/' excludes git worktrees used for in-progress branch
+  // work (e.g. `.worktrees/car-*`) - without this, `npm test` from the main
   // checkout also picks up and runs every worktree's test files as if they
   // were part of main, silently inflating pass/fail counts and making local
   // verification unreliable (discovered while merging Car D of the
   // best-practices fix train, when `main`'s post-merge `npm test` showed 200
   // tests instead of the expected ~57 because two other cars' worktrees were
-  // still checked out alongside it).
-  testPathIgnorePatterns: ['/node_modules/', '/.next/', '/.worktrees/'],
+  // still checked out alongside it). Anchored to <rootDir> (not a bare
+  // '/.worktrees/') because a bare pattern also matches when jest itself runs
+  // FROM INSIDE a worktree whose own path contains ".worktrees" as an
+  // ancestor segment - that silently excluded the entire worktree's own
+  // tests (0 matches), a real regression caught while verifying Car E.
+  testPathIgnorePatterns: ['/node_modules/', '/.next/', '<rootDir>/.worktrees/'],
   // Round-3 plan-review fix (1/2): the real `server-only` package throws when
   // imported outside Next's own "react-server" build condition, which Jest (running
   // plain CommonJS/ts-jest, not Next's bundler) never provides - every test that
