@@ -1,0 +1,37 @@
+:root {
+  /* --accent, --bg, and --surface MUST be kept identical to the hex literals in
+     lib/contrast.test.ts (Task F.1/F.2 cross-reference - the contrast gate's hex
+     literals are not automatically derived from these tokens, so a human editing
+     either file must see this comment). */
+  --bg: #0a0a0c;
+  --surface: #141417;
+  --border: #26262b;
+  --text-primary: #ededf0;
+  --text-secondary: #8b8b93;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --font-sans: 'Inter', 'Geist Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', ui-monospace, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent-hover);
+}
