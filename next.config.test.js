@@ -23,6 +23,18 @@ describe('next.config.js security headers', () => {
     expect(csp.value).toContain("default-src 'self'");
   });
 
+  // round-1 review fix: `script-src 'self'` alone blocks Next.js App Router's
+  // own inline hydration script and breaks client-side navigation entirely
+  // (verified with Playwright against a real production build - see the
+  // comment in next.config.js). This is deliberately loose for that reason,
+  // not an oversight - a unit test alone can't catch the hydration
+  // regression itself, so this only guards against silently reverting the fix.
+  it("allows inline scripts so Next.js's own hydration payload can execute", async () => {
+    const rules = await nextConfig.headers();
+    const csp = rules[0].headers.find((h) => h.key === 'Content-Security-Policy');
+    expect(csp.value).toContain("script-src 'self' 'unsafe-inline'");
+  });
+
   it('sets X-Content-Type-Options to nosniff', async () => {
     const rules = await nextConfig.headers();
     const header = rules[0].headers.find((h) => h.key === 'X-Content-Type-Options');
