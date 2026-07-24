@@ -12,3 +12,10 @@ test('home page renders public contact links, not just the email (round-4 plan-r
   const source = require('fs').readFileSync(require.resolve('./page.tsx'), 'utf8');
   expect(source).toMatch(/resume\.contact\.links/);
 });
+
+test('home page exports metadata deriving its description from the real resume summary, not a hardcoded string (issue #3/#4)', () => {
+  const source = require('fs').readFileSync(require.resolve('./page.tsx'), 'utf8');
+  expect(source).toMatch(/generateMetadata/);
+  expect(source).toMatch(/resume\.summary/);
+  expect(source).toMatch(/openGraph:/);
+});

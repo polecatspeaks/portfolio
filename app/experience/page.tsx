@@ -1,5 +1,16 @@
+import type { Metadata } from 'next';
 import { getResume } from '../../lib/resume';
 import styles from './page.module.css';
+
+export const metadata: Metadata = {
+  title: 'Experience',
+  description: 'Professional experience and education history.',
+  openGraph: {
+    title: 'Experience · Christopher Mann',
+    description: 'Professional experience and education history.',
+    type: 'website',
+  },
+};
 
 export default async function ExperiencePage() {
   const resume = getResume();
