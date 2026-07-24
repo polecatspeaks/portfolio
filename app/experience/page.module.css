@@ -1,0 +1,25 @@
+.main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.job {
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0;
+}
+
+.job:last-of-type {
+  border-bottom: none;
+}
+
+.dates {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.year {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
