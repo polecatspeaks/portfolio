@@ -10,8 +10,8 @@
   --text-secondary: #8b8b93;
   --accent: #3b82f6;
   --accent-hover: #60a5fa;
-  --font-sans: 'Inter', 'Geist Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Geist Mono', ui-monospace, monospace;
+  --font-sans: var(--font-inter), 'Geist Sans', system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), 'Geist Mono', ui-monospace, monospace;
 }
 
 *,
