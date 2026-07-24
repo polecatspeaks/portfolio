@@ -14,3 +14,10 @@ test('projects page module declares force-static rendering explicitly, not impli
   const source = require('fs').readFileSync(require.resolve('./page.tsx'), 'utf8');
   expect(source).toMatch(/export const dynamic = ['"]force-static['"]/);
 });
+
+test('projects page exports metadata with a real page title and Open Graph block (issue #3/#4)', () => {
+  const source = require('fs').readFileSync(require.resolve('./page.tsx'), 'utf8');
+  expect(source).toMatch(/export const metadata/);
+  expect(source).toMatch(/title:\s*['"]Projects['"]/);
+  expect(source).toMatch(/openGraph:/);
+});

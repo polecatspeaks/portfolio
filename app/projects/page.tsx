@@ -1,6 +1,17 @@
+import type { Metadata } from 'next';
 import { getFeaturedRepos } from '../../lib/github.server';
 import { getPrivateProjects } from '../../lib/private-projects.server';
 import styles from './page.module.css';
+
+export const metadata: Metadata = {
+  title: 'Projects',
+  description: 'Public and private project portfolio.',
+  openGraph: {
+    title: 'Projects · Christopher Mann',
+    description: 'Public and private project portfolio.',
+    type: 'website',
+  },
+};
 
 // Explicit, not relied-upon-by-default: forces this route to be statically rendered
 // at build time only (Next.js 14's documented `dynamic` route segment config). This
