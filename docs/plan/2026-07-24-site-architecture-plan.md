@@ -1398,21 +1398,29 @@ explicitly.
 committed file) - `AGENTS.md` is updated to state the configured value as fact, not
 intent, once set.
 
-- [ ] **Step 1:** In Vercel Project Settings -> Git, set **Production Branch** to
-  `production` (spec §2/§4 decision 5's exact mechanism). Create the `production`
-  branch in the repo if it doesn't exist yet, pointed at the same commit as `main` at
-  time of creation.
-- [ ] **Step 2:** Confirm (by pushing a trivial commit to `main`) that it builds a
-  Preview deployment only, not Production - this is the closest this task gets to a
-  "red/green" cycle, since the claim being validated is an external platform behavior,
-  not code this plan controls.
-- [ ] **Step 3:** Update `AGENTS.md`'s currently-active-rules section to state the
-  configured Production Branch value and the merge-after-Preview-confirmation workflow
-  as the actual, live deploy mechanism (closing the gap between "designed" and "true
-  right now").
-- [ ] **Step 4:** No automated suite applies to this task; the verification is the
-  manual Preview-vs-Production observation in Step 2, documented in the commit message.
-- [ ] **Step 5: commit** `docs(agents): record live Vercel Production Branch config`
+- [x] **Step 1 (deviated, owner-decided):** A `production` branch was created and
+  pushed pointed at `main`'s tip, and `GITHUB_TOKEN` (fine-grained PAT, read-only
+  Contents access scoped to the private `STAR` repo only) was added in Vercel Project
+  Settings -> Environment Variables. However, the owner explicitly chose **not** to
+  switch Production Branch away from Vercel's default `main` - keeping `main` as the
+  live Production Branch instead of promoting via a separate `production` branch, to
+  avoid an unnecessary extra step for a one-person static site. The now-unused
+  `production` branch was deleted after this decision.
+- [x] **Step 2 (adapted):** Since Production Branch stayed `main`, the red/green
+  validation actually observed was the `GITHUB_TOKEN`-absent build failing closed
+  (`Error: GITHUB_TOKEN is required at build time and was not set`, confirmed via
+  `Vercel-get_deployment_build_logs` against deployment `dpl_85QBBqhznGgu6Fq6dvSVuK7fwa6r`)
+  followed by a real, green Production deployment
+  (`dpl_BVgX8t87czKyFbvvhe8HDpSrRfdd`, state `READY`, target `production`, built from
+  `main`@`e71bbf8`) once the token was added - confirmed via `Vercel-list_deployments`.
+  The originally-planned Preview-vs-Production distinction no longer applies since
+  `main` merges deploy straight to Production by design now.
+- [x] **Step 3:** `AGENTS.md`'s currently-active-rules section updated to state the
+  live deploy mechanism as fact: Production Branch is `main`, `GITHUB_TOKEN` is
+  required and fails the build closed if absent.
+- [x] **Step 4:** No automated suite applies; verification is the live deployment
+  state observed above via Vercel MCP tools, documented in the commit message.
+- [x] **Step 5: commit** `docs(agents): record live Vercel Production Branch config`
 
 **Ledger:** No mutable state - a one-time platform configuration change, stated
 explicitly; not a code artifact this plan's ledger tracks.

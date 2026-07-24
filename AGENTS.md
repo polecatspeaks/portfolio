@@ -38,6 +38,19 @@ polish (Law 6).
   currently healthy (Law 4) - don't build on top of an unnoticed broken prod.
 - **Session end:** say plainly what changed, what (if anything) is left half-done, and
   whether prod is known-good.
+- **Live deploy mechanism (as configured, not as originally planned):** Vercel's
+  Production Branch is `main` itself - every push/merge to `main` deploys straight to
+  production, with no separate Preview-then-promote branch. The plan's original design
+  (a dedicated `production` branch as the Production Branch, promoted after Preview
+  confirmation) was deliberately dropped as unneeded overhead for a one-person static
+  site; the `production` branch was deleted. `GITHUB_TOKEN` (a fine-grained PAT scoped
+  to read-only Contents access on the private `STAR` repo) is set in Vercel Project
+  Settings -> Environment Variables and required at build time - its absence fails the
+  build closed (see `lib/env.ts`), which is by design, not a bug.
+- **Live URL:** `https://star-stack.io/` (custom domain attached to the Vercel project).
+  Verified live: `/`, `/experience`, and `/projects` all return 200, `/projects` renders
+  real project content, and no secret/token/internal SHA field leaks into the served
+  HTML.
 
 ## Not yet adopted (wait for the trigger)
 
