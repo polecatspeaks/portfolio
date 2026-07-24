@@ -72,42 +72,42 @@
       "employer": "Walking Thumbs LLC",
       "title": "Systems Administrator",
       "start": "",
-      "end": null,
+      "end": "",
       "bullets": ["Redesigned infrastructure, migrated AWS, and automated Chef configurations."]
     },
     {
       "employer": "Electronic Arts (EA)",
       "title": "Infrastructure Engineer",
       "start": "",
-      "end": null,
+      "end": "",
       "bullets": ["Engineered experimental gaming infrastructure and technology projects."]
     },
     {
       "employer": "Oracle USA",
       "title": "Oracle Transportation Management Specialist",
       "start": "",
-      "end": null,
+      "end": "",
       "bullets": ["Implemented enterprise deployment and production support."]
     },
     {
       "employer": "CompuCom / GE Healthcare",
       "title": "Windows & Virtualization Engineer",
       "start": "",
-      "end": null,
+      "end": "",
       "bullets": ["Reduced server delivery from 90 days to four days."]
     },
     {
       "employer": "Stonebridge Bank / Legg Mason / Progress Bank",
       "title": "Infrastructure Engineer",
       "start": "",
-      "end": null,
+      "end": "",
       "bullets": ["Administered enterprise banking infrastructure operations."]
     },
     {
       "employer": "iCarnegie Global Learning / Haddon House Food Products / Xerox Connect",
       "title": "Infrastructure Consultant",
       "start": "",
-      "end": null,
+      "end": "",
       "bullets": ["Refined virtualization infrastructure."]
     }
   ],
