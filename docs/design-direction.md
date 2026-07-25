@@ -1,5 +1,6 @@
-Status: Current (v2, 2026-07-24 - supersedes v1 in full; right-sized reference doc,
-not a ladder design doc - see AGENTS.md right-sizing rule)
+Status: Current (v2.1, 2026-07-24 - supersedes v1 in full; v2.1 amendments from the
+adversarial design review, all approved by owner, tracked as issues #11-#19;
+right-sized reference doc, not a ladder design doc - see AGENTS.md right-sizing rule)
 
 # Visual & voice direction v2 - "friendly neighborhood cyberpunk, without the mods"
 
@@ -26,6 +27,14 @@ the costume.
 Priority order when anything conflicts: **mission (make it understandable) drives;
 cyberpunk seasons.** Never the reverse.
 
+## Reference anchor (v2.1): the Raven Hotel
+
+Owner's triangulation reference: **the Raven Hotel / Poe** (Altered Carbon, Netflix) -
+*"old and comfy but still connected with the present."* A warm, courteous, slightly
+anachronistic host inside a high-tech world. This reframes the retention goal as
+**hospitality**: don't hold visitors, *host* them. Every page should have a next
+room; nothing should feel like a dead end or a warehouse manifest.
+
 ## Audience (be honest about it)
 
 Written so anyone could follow it; aimed at people who might hire or collaborate.
@@ -45,6 +54,10 @@ strategy; it is "no reader is ever gatekept" as a voice.
 - **Microcopy carries the genre flavor** - sparingly. Section labels, empty states,
   and small asides may be street-lit ("the facts", "what's on the bench"); body
   copy stays clear. If a genre touch costs any comprehension, cut it.
+- **Voice register (v2.1):** GenX dry, self-deprecating, zero ego - wry but never
+  undermining the competence the site exists to prove. Story ledes over stat
+  badges: numbers live in prose *with context* ("10K servers across five
+  carriers"), because a percentage without scale is meaningless.
 - **Law 6 alignment (accuracy over polish):** the plain-language register must never
   round up. Simplified is fine; inflated is a constitution violation. Monospace
   remains reserved for verifiable/factual data (dates, repo names, versions) -
@@ -56,6 +69,23 @@ Warm dark, human, legible. **Street-lit, not tower-lit:** sodium-streetlight war
 against a dark evening base - a neighborhood at night, not a server room. Flavor
 level agreed with owner: *subtle* - warm dark base, one hot accent, genre otherwise
 present in voice/microcopy only.
+
+**Lamplight (v2.1):** the Raven Hotel's warmth comes from pools of light in
+darkness. One restrained warm radial glow behind the homepage hero is in scope -
+*lamplight, not neon*. The distinction: warm vs cold, atmospheric vs decorative.
+
+**Photo (v2.1):** the owner's B&W portrait (owner-authorized, taken from
+lawfulshenanigans.com, stored locally in `public/`) anchors the homepage hero -
+two-column on desktop (name + tagline left, portrait right), stacked on mobile.
+
+**Motion (v2.1, owner-selected engagement lever):** content settles in on scroll -
+opacity + small translate, plays once, `transform`/`opacity` only. Honor
+`prefers-reduced-motion` by disabling entirely. Nothing follows the cursor, nothing
+loops. The hotel doesn't perform; it receives you.
+
+**Footer (v2.1):** a quiet footer on every page is the ambient CTA - email, GitHub,
+LinkedIn, lawfulshenanigans.com, one dry sign-off line. Point at the work; keep
+contact quiet.
 
 ## Color palette
 
@@ -77,10 +107,15 @@ Constraints carried from v1, still binding:
 
 ## Typography
 
-- Headings and body: Inter (already loaded via `next/font`). Keep it - the
-  friendliness comes from scale, spacing, and voice, not a novelty typeface.
+- **Display (v2.1): Cormorant Garamond** for the name, page headings, and story
+  ledes - the "old and comfy" half of the reference. Cross-brand coherence:
+  lawfulshenanigans.com's headings already use it, making the owner's two
+  properties visibly siblings. Loaded via `next/font` like the others.
+- Body: Inter (already loaded via `next/font`) - the "connected to the present"
+  half. Scale, spacing, and voice carry the friendliness.
 - Monospace: JetBrains Mono (already loaded), reserved for verifiable/factual data
-  only, per the Law 6 note above.
+  only, per the Law 6 note above. Every heading/body/fact pairing is the
+  old-meets-present statement in miniature.
 - **The implementation pass must ship an actual type scale** (v1's central execution
   failure): deliberate heading sizes, body `line-height` ~1.6 for the prose column,
   vertical rhythm, `text-wrap: balance` on headings, en dashes for ranges.
@@ -99,5 +134,6 @@ Lucide (outlined, 1.5px stroke) if/when needed. Unchanged from v1.
 ## Non-goals (unchanged from the architecture design §7)
 
 No theming system, no dark/light toggle, no i18n, no CMS. Single fixed dark theme.
-Additionally out of scope for v2: glitch/scanline effects, neon glows, animated
-terminal gimmicks - see "without the mods."
+Additionally out of scope for v2: glitch/scanline effects, **neon** glows (warm
+lamplight is in scope per the v2.1 amendment above - cold/decorative glow effects
+remain out), animated terminal gimmicks - see "without the mods."
