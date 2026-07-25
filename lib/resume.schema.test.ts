@@ -67,6 +67,14 @@ test('blank/whitespace-only story throws (effectively-missing content must not p
   expect(() => validateResume(bad)).toThrow(/story/);
 });
 
+test('blank/whitespace-only name throws (the homepage h1 must never render empty)', () => {
+  expect(() => validateResume({ ...VALID, name: '   ' })).toThrow(/name/);
+});
+
+test('blank/whitespace-only tagline throws (the plain register must never render empty)', () => {
+  expect(() => validateResume({ ...VALID, tagline: '' })).toThrow(/tagline/);
+});
+
 test('non-array skills throws', () => {
   const bad = { ...VALID, skills: 'TypeScript' };
   expect(() => validateResume(bad)).toThrow(/skills/);
