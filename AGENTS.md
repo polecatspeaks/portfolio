@@ -62,37 +62,27 @@ polish (Law 6).
   currently healthy (Law 4) - don't build on top of an unnoticed broken prod.
 - **Session end:** say plainly what changed, what (if anything) is left half-done, and
   whether prod is known-good.
-- **Live deploy mechanism (revised - manual promotion gate, reversing the earlier
-  Task E.2 decision):** Vercel's Production Branch is no longer set to auto-promote
-  every `main` push straight to Production. Every push/merge to `main` now builds a
-  **Preview** deployment only, with its own preview URL - that preview URL is the
-  place to actually load and check a change before it goes live. Going live requires
-  an explicit, manual **"Promote to Production"** action in the Vercel dashboard.
-  This restores the real red/green-style safety gate the original plan's
-  Preview-then-promote design was after (the earlier "just let `main` deploy straight
-  to prod, drop the extra step" simplification - recorded in the prior version of
-  this section - is now itself superseded; kept simple is not the same as kept safest,
-  and the owner decided the manual gate is worth the one extra click). `GITHUB_TOKEN`
-  (a fine-grained PAT scoped to read-only Contents access on the private `STAR` repo)
-  is set in Vercel Project Settings -> Environment Variables and required at build
-  time - its absence fails the build closed (see `lib/env.ts`), which is by design,
-  not a bug. **Observed discrepancy (2026-07-24, tracked - human decision pending):**
-  Vercel's deployment history shows recent `main` pushes deploying directly with
-  `target: production`, i.e. the manual-promotion gate described above is not
-  currently active. **Authoritative interim rule: treat every merge to `main` as
-  immediately visitor-facing production.** The PR review + stability gate in the
-  branch-and-PR SOP above is the operative pre-prod gate, and post-merge
-  verification of `https://star-stack.io/` is mandatory (verification honesty).
-  The human operator will decide whether to re-enable the Vercel manual-promotion
-  setting or formally retire the paragraph above; whichever is chosen, this
-  section gets rewritten to describe only that one workflow.
+- **Live deploy mechanism (revised 2026-07-24 - manual promotion gate retired):**
+  Every merge to `main` deploys directly to Production on Vercel (`main` is the
+  Production Branch). **Treat every merge to `main` as immediately visitor-facing.**
+  The pre-prod gate is the branch-and-PR SOP above: feature-branch pushes get their
+  own Vercel Preview URL - that preview is where a change is actually loaded and
+  checked before merge - and the PR review + stability gate decide readiness. The
+  earlier manual "Promote to Production" dashboard gate (recorded in the prior
+  version of this section) is formally retired by owner decision - the PR gate
+  replaced it, and deployment history showed it was not active in practice anyway.
+  Post-merge verification of the live domain is mandatory (verification honesty).
+  `GITHUB_TOKEN` (a fine-grained PAT scoped to read-only Contents access on the
+  private `STAR` repo) is set in Vercel Project Settings -> Environment Variables
+  and required at build time - its absence fails the build closed (see
+  `lib/env.ts`), which is by design, not a bug.
 - **Live URL:** `https://star-stack.io/` (custom domain attached to the Vercel
   project, excluded from Vercel's Deployment Protection login wall - unlike the
   default `*.vercel.app` alias URLs, which now require a Vercel account login to
-  view directly). Real content was verified live here as of the pre-manual-promotion
-  workflow; re-verify after each future promotion, per the verification-honesty rule
-  above - don't assume a promoted deploy matches what was checked on its preview URL
-  without loading the actual live domain again.
+  view directly). Re-verify this URL after every merge to `main`, per the
+  verification-honesty rule above - don't assume the deployed result matches what
+  was checked on the branch preview URL without loading the actual live domain
+  again.
 - **Visual design direction:** `docs/design-direction.md` records the agreed dark,
   minimal, dev-tool-styled direction (colors, type, layout) for implementing CSS. It's
   a right-sized reference doc, not a ladder design doc - styling changes don't need
