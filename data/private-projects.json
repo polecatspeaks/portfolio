@@ -2,8 +2,12 @@
   {
     "repo": "polecatspeaks/STAR",
     "title": "STAR - Simulation Telemetry Analytics & Racing",
+    "headline": "Race strategy from live telemetry",
+    "story": "STAR is a private sim-racing strategy tool built with .NET and Avalonia UI. It ingests live telemetry, tracks session history, plans pace targets like push, save, recovery, in-lap, and out-lap, and includes an AI strategy assistant. It matters because race decisions get easier when the car, the plan, and the history are in one place instead of scattered across panic and memory.",
     "summary": "A private sim-racing race-strategy tool: live telemetry ingestion, race-plan/pace targets (push/save/recovery/in-lap/out-lap), session history, and an AI strategy assistant, built on .NET/Avalonia UI. Current focus is a UI revamp (ui-revamp branch) reworking the race-brief and strategy screens shown below.",
-    "screenshots": ["/screenshots/star-ui.png"],
+    "screenshots": [
+      "/screenshots/star-ui.png"
+    ],
     "date": "2026-07",
     "lastVerifiedSha": "9bf1d6943f9a72d8b84d1baeb83237ddca3c6f63"
   }

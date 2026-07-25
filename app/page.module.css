@@ -1,21 +1,139 @@
 .main {
   max-width: 720px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 3rem 1.5rem 4rem;
 }
 
-.links {
+/* Hero (issue #13): name + tagline beside the portrait, stacking on mobile.
+   The glow behind the portrait is the "lamplight, not neon" rule from the
+   direction doc - one warm radial, static, subtle. */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .hero {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+.heroText h1 {
+  margin-bottom: 0.5rem;
+}
+
+.heroPortrait {
+  position: relative;
+  justify-self: center;
+  max-width: 260px;
+}
+
+.heroPortrait::before {
+  content: '';
+  position: absolute;
+  inset: -18%;
+  /* Lamplight glow derived from the documented --accent token at low alpha
+     (docs/design-direction.md: "lamplight, not neon") - not a free-floating
+     color literal. */
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--accent) 16%, transparent),
+    transparent 70%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.portrait {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+/* Street-level register: leads the page, reads like a person talking. */
+.tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.45rem;
+  line-height: 1.5;
+  margin: 0 0 1.25rem;
+}
+
+/* Doors (issue #14): two internal invitations so the homepage is a hallway,
+   not a dead end. */
+.doors {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .doors {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.door {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease-out;
+}
+
+.door:hover {
+  border-color: var(--accent);
+}
+
+.doorTitle {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.doorHint {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Technical register: present, quieter, underneath - for those who want it. */
+.summary {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Capabilities (issue #15): plain-language lines lead; jargon demoted below. */
+.capabilities {
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin: 1.5rem 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.jargonLabel {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
 }
 
 .skills {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -27,4 +145,5 @@
   border-radius: 6px;
   padding: 0.35rem 0.75rem;
   color: var(--text-secondary);
+  font-size: 0.9rem;
 }

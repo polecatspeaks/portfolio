@@ -1,13 +1,21 @@
 {
+  "name": "Christopher Mann",
+  "tagline": "I keep big, complicated systems running - the kind that deliver television across entire networks - and I build automation that takes the tedious, error-prone work off human plates. The part I care about most: making the intimidating parts of technology understandable and dependable for the people who rely on them.",
   "summary": "AI-Driven DevOps & MLOps Lead | Cloud Infrastructure | Automation Engineering. Seasoned professional with extensive experience in engineering scalable cloud platforms, intelligent automation solutions, and resilient production systems by combining deep infrastructure expertise with emerging LLM technologies. Instrumental in DevOps engineering, MLOps architecture, cloud-native platforms, and AI-powered automation across enterprise environments.",
   "contact": {
     "email": "mannchristophers@gmail.com",
-    "links": ["https://www.linkedin.com/in/christopherscottmann"]
+    "links": [
+      "https://www.linkedin.com/in/christopherscottmann",
+      "https://github.com/polecatspeaks",
+      "https://lawfulshenanigans.com"
+    ]
   },
   "workHistory": [
     {
       "employer": "Comcast Corporation",
       "title": "Engineer 3, Software Development & Engineering - VIPER Team",
+      "headline": "Eight years keeping television flowing",
+      "story": "I helped keep live TV, video on demand, DVR, emergency alerts, and streaming infrastructure running across Comcast partner networks. That meant the unglamorous work: serving video pieces, protecting streams, watching the systems, and making sure outages did not get to be dramatic. I also built automation for security patching and service monitoring, including a patch platform for more than 10,000 servers across Comcast, Cox, Rogers, Shaw, and Sky. When the Emergency Alert System infrastructure was hit by a Redis security breach, I helped coordinate the rebuild of 80 production servers in 20 hours without losing data, which is about as restful as it sounds.",
       "start": "2017",
       "end": "2026",
       "bullets": [
@@ -29,6 +37,8 @@
     {
       "employer": "Objective Zero Foundation",
       "title": "Chief Technology Officer (Volunteer)",
+      "headline": "Building tech for veteran support",
+      "story": "I served as volunteer technology lead for a mobile platform focused on veteran suicide prevention. I helped turn product ideas and designs into a working application while coordinating remote and offshore engineering teams. The work also meant keeping the boring but essential parts in view: privacy rules, data protection, cybersecurity, schedules, and stakeholder expectations.",
       "start": "2017",
       "end": "2018",
       "bullets": [
@@ -43,6 +53,8 @@
     {
       "employer": "Sidecar Interactive",
       "title": "Senior DevOps Engineer / DevOps Team Lead",
+      "headline": "Turning custom hosting into platform",
+      "story": "I helped move a custom hosting setup toward a more reliable hybrid cloud and on-premises platform. I led DevOps work across automation, operations, and production availability, then hired and coached three engineers to help carry it. I also handled a VMware data center migration that reduced the colocation footprint, because apparently servers do not move themselves.",
       "start": "2016",
       "end": "2016",
       "bullets": [
@@ -57,6 +69,8 @@
     {
       "employer": "Intermedix",
       "title": "Senior Systems Engineer / DevOps Engineer",
+      "headline": "Keeping healthcare systems steady",
+      "story": "I ran and supported production infrastructure built on VMware, Nimble Storage, and A10 systems. I helped improve a Business Intelligence environment so reporting had a sturdier place to stand. I also designed a standard Linux deployment approach and supported an enterprise data center relocation, which is one of those jobs where quiet is the desired outcome.",
       "start": "2015",
       "end": "2016",
       "bullets": [
@@ -71,44 +85,68 @@
     {
       "employer": "Walking Thumbs LLC",
       "title": "Systems Administrator",
+      "headline": "Cleaning up cloud infrastructure",
+      "story": "I redesigned infrastructure, moved systems in AWS, and automated Chef configurations. The job was the practical kind: make the setup less manual, less fragile, and less dependent on someone remembering the exact spell at 2 a.m.",
       "start": "",
       "end": "",
-      "bullets": ["Redesigned infrastructure, migrated AWS, and automated Chef configurations."]
+      "bullets": [
+        "Redesigned infrastructure, migrated AWS, and automated Chef configurations."
+      ]
     },
     {
       "employer": "Electronic Arts (EA)",
       "title": "Infrastructure Engineer",
+      "headline": "Testing ideas behind games",
+      "story": "I engineered experimental gaming infrastructure and technology projects. The source detail is short, so I will not pretend it was a ten-volume saga. It was infrastructure work in the place where game ideas need real systems before anyone can learn anything useful from them.",
       "start": "",
       "end": "",
-      "bullets": ["Engineered experimental gaming infrastructure and technology projects."]
+      "bullets": [
+        "Engineered experimental gaming infrastructure and technology projects."
+      ]
     },
     {
       "employer": "Oracle USA",
       "title": "Oracle Transportation Management Specialist",
+      "headline": "Supporting transportation management systems",
+      "story": "I worked on enterprise deployment and production support for Oracle Transportation Management. In plain terms, I helped get business software into production and keep it there, which is less glamorous than a launch party and much more useful the next morning.",
       "start": "",
       "end": "",
-      "bullets": ["Implemented enterprise deployment and production support."]
+      "bullets": [
+        "Implemented enterprise deployment and production support."
+      ]
     },
     {
       "employer": "CompuCom / GE Healthcare",
       "title": "Windows & Virtualization Engineer",
+      "headline": "Making server delivery sane",
+      "story": "I worked on Windows and virtualization engineering for GE Healthcare through CompuCom. The clearest result was reducing server delivery from 90 days to four days. That kind of change does not need much decoration; waiting three months for a server was the problem.",
       "start": "",
       "end": "",
-      "bullets": ["Reduced server delivery from 90 days to four days."]
+      "bullets": [
+        "Reduced server delivery from 90 days to four days."
+      ]
     },
     {
       "employer": "Stonebridge Bank / Legg Mason / Progress Bank",
       "title": "Infrastructure Engineer",
+      "headline": "Running banking infrastructure quietly",
+      "story": "I administered enterprise infrastructure operations for banking and financial environments. The available source detail is spare, so the honest version is spare too: I kept the systems side operating where reliability mattered and excuses did not age well.",
       "start": "",
       "end": "",
-      "bullets": ["Administered enterprise banking infrastructure operations."]
+      "bullets": [
+        "Administered enterprise banking infrastructure operations."
+      ]
     },
     {
       "employer": "iCarnegie Global Learning / Haddon House Food Products / Xerox Connect",
       "title": "Infrastructure Consultant",
+      "headline": "Tuning virtualization for real use",
+      "story": "I consulted on virtualization infrastructure and helped refine it. There is not a lot of source material to dress up here, which is fine. Sometimes the job is simply making the underlying platform less awkward for everyone who has to live on it.",
       "start": "",
       "end": "",
-      "bullets": ["Refined virtualization infrastructure."]
+      "bullets": [
+        "Refined virtualization infrastructure."
+      ]
     }
   ],
   "skills": [
@@ -125,5 +163,12 @@
     "Enterprise Systems Integration",
     "Technical Team Leadership"
   ],
-  "education": []
+  "education": [],
+  "capabilities": [
+    "I keep television running for millions of households - the systems behind live TV, on-demand, and emergency alerts.",
+    "I teach machines to do the tedious, risky work. Patching ten thousand servers used to take weeks; now it takes days.",
+    "I build AI tooling that actually ships to production instead of stalling at the demo stage.",
+    "I make systems watch themselves - monitoring that flags trouble before customers ever notice.",
+    "I have led engineering teams around the clock and around the world, and they still talk to me."
+  ]
 }

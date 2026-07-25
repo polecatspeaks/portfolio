@@ -3,3 +3,9 @@ node_modules/
 *.tsbuildinfo
 .worktrees/
 *.docx
+
+# Locally installed agent skills - tooling, not site content
+.agents/
+.claude/
+data/skills/
+skills-lock.json
