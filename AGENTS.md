@@ -41,6 +41,7 @@ polish (Law 6).
      happens at a stable state. Guide star: if a visitor to the site would think it
      looks bad or broken, it does not get promoted - regardless of review threads
      being resolved. Half-finished visual states stay on the branch.
+
   Branch protection on `main` (require PR, require conversation resolution,
   `enforce_admins` on - no admin bypass, because agents commit on the owner's login,
   so an admin escape hatch is an agent escape hatch; verified by an actual rejected
