@@ -1,5 +1,12 @@
 Status: Done
 
+> **Deploy-mechanism supersession (2026-07-24):** The deploy design here (§2 Deploy:
+> Production Branch = dedicated `production` branch, `main` Preview-only, manual
+> promotion) is **superseded**. As built and later ratified by owner decision,
+> Vercel's Production Branch is `main` and every merge to `main` deploys directly
+> to Production; the pre-prod gate is the branch-and-PR SOP. See `AGENTS.md`
+> "Live deploy mechanism" for the current authoritative workflow.
+
 # Portfolio site: data-sourced pages, build-time integrity gates (spec)
 
 Cargo: `docs/design/2026-07-24-site-architecture-design.md` (Status: Done, APPROVE on

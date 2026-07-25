@@ -1,5 +1,13 @@
 Status: Done
 
+> **Deploy-mechanism supersession (2026-07-24):** Decision 5 (Production Branch =
+> dedicated `production` branch, `main` builds Preview-only, manual promotion) is
+> **superseded**. As built and later ratified by owner decision, Vercel's Production
+> Branch is `main` and every merge to `main` deploys directly to Production; the
+> pre-prod gate is the branch-and-PR SOP (branch preview URL + PR review + stability
+> gate). See `AGENTS.md` "Live deploy mechanism" for the current authoritative
+> workflow. The rest of this design remains the historical record of what was decided.
+
 # Site architecture design - personal portfolio (Next.js on Vercel)
 
 Owner: @polecatspeaks
