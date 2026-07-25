@@ -28,14 +28,15 @@ export default async function ProjectsPage() {
   ]);
 
   return (
-    <main className={styles.main}>
+    <main id="main" className={styles.main}>
       <h1>Projects</h1>
       <section className={styles.section}>
         <h2>Public</h2>
         {publicRepos.map((repo) => (
           <article key={repo.full_name} className={styles.card}>
             <h3><a href={repo.html_url} className={styles.repoName}>{repo.full_name}</a></h3>
-            <p>{repo.description}</p>
+            {/* GitHub descriptions can be empty - don't render a broken empty <p> */}
+            {repo.description ? <p>{repo.description}</p> : null}
           </article>
         ))}
       </section>

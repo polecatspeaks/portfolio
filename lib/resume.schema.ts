@@ -1,4 +1,6 @@
 export type ResumeSchema = {
+  name: string;
+  tagline: string;
   summary: string;
   contact: { email: string; links: string[] };
   workHistory: Array<{
@@ -18,6 +20,8 @@ function fail(path: string): never {
 
 export function validateResume(input: unknown): ResumeSchema {
   const r = input as Record<string, unknown>;
+  if (typeof r?.name !== 'string') fail('name');
+  if (typeof r?.tagline !== 'string') fail('tagline');
   if (typeof r?.summary !== 'string') fail('summary');
   const contact = r.contact as Record<string, unknown>;
   if (typeof contact?.email !== 'string') fail('contact.email');

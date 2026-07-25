@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import SiteNav from './components/SiteNav';
@@ -25,10 +25,20 @@ export const metadata: Metadata = {
   description: 'Personal portfolio and resume site for Christopher Mann - DevOps & MLOps engineering.',
 };
 
+// Mobile browser chrome matches the page background (WIG dark-mode rule);
+// value mirrors --bg in globals.css.
+export const viewport: Viewport = {
+  themeColor: '#121009',
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
+        {/* Each page's <main> carries id="main" for this target. */}
+        <a href="#main" className="skip-link">
+          Skip to main content
+        </a>
         <SiteNav />
         {children}
       </body>

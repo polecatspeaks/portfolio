@@ -4,9 +4,9 @@ import { contrastRatio } from './contrast';
 // and --surface token values (Task F.1/F.2 cross-reference - see plan §11 round 1
 // finding 2: this coupling is not automatically derived, so a human editing either
 // file must see this comment).
-const ACCENT = '#3b82f6';
-const BG = '#0a0a0c';
-const SURFACE = '#141417';
+const ACCENT = '#f5a623';
+const BG = '#121009';
+const SURFACE = '#1c1812';
 
 describe('contrastRatio', () => {
   it('computes >= 4.5 for --accent on --bg (real color pair used for links/active nav)', () => {

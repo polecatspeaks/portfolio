@@ -1,6 +1,8 @@
 import { validateResume } from './resume.schema';
 
 const VALID = {
+  name: 'Ada Example',
+  tagline: 'I explain complicated systems in plain words.',
   summary: 'Software engineer.',
   contact: { email: 'me@example.com', links: ['https://github.com/polecatspeaks'] },
   workHistory: [
@@ -17,6 +19,16 @@ test('a fully valid resume passes through unchanged', () => {
 test('missing summary throws naming the field', () => {
   const { summary, ...rest } = VALID;
   expect(() => validateResume(rest)).toThrow(/summary/);
+});
+
+test('missing name throws naming the field (v2 direction: homepage h1 is the name, sourced from the resume per Law 3)', () => {
+  const { name, ...rest } = VALID;
+  expect(() => validateResume(rest)).toThrow(/name/);
+});
+
+test('missing tagline throws naming the field (v2 direction: plain-language register is resume content, not page copy)', () => {
+  const { tagline, ...rest } = VALID;
+  expect(() => validateResume(rest)).toThrow(/tagline/);
 });
 
 test('workHistory[].end accepts string OR null, rejects undefined', () => {

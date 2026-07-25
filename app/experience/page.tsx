@@ -15,12 +15,13 @@ export const metadata: Metadata = {
 export default async function ExperiencePage() {
   const resume = getResume();
   return (
-    <main className={styles.main}>
+    <main id="main" className={styles.main}>
       <h1>Experience</h1>
       {resume.workHistory.map((job) => (
         <section key={`${job.employer}-${job.start}`} className={styles.job}>
-          <h2>{job.title} - {job.employer}</h2>
-          <p className={styles.dates}>{job.start} - {job.end ?? 'Present'}</p>
+          <h2>{job.title} · {job.employer}</h2>
+          {/* en dash for the range, not hyphen-minus (typography guideline) */}
+          <p className={styles.dates}>{job.start}–{job.end ?? 'Present'}</p>
           <ul>
             {job.bullets.map((bullet) => (
               <li key={bullet}>{bullet}</li>
@@ -30,7 +31,7 @@ export default async function ExperiencePage() {
       ))}
       <h2>Education</h2>
       {resume.education.map((ed) => (
-        <p key={`${ed.institution}-${ed.year}`}>
+        <p key={`${ed.institution}-${ed.year}`} className={styles.education}>
           {ed.program}, {ed.institution} (<span className={styles.year}>{ed.year}</span>)
         </p>
       ))}

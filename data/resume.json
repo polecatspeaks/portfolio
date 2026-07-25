@@ -1,8 +1,12 @@
 {
+  "name": "Christopher Mann",
+  "tagline": "I keep big, complicated systems running - the kind that deliver television across entire networks - and I build automation that takes the tedious, error-prone work off human plates. The part I care about most: making the intimidating parts of technology understandable and dependable for the people who rely on them.",
   "summary": "AI-Driven DevOps & MLOps Lead | Cloud Infrastructure | Automation Engineering. Seasoned professional with extensive experience in engineering scalable cloud platforms, intelligent automation solutions, and resilient production systems by combining deep infrastructure expertise with emerging LLM technologies. Instrumental in DevOps engineering, MLOps architecture, cloud-native platforms, and AI-powered automation across enterprise environments.",
   "contact": {
     "email": "mannchristophers@gmail.com",
-    "links": ["https://www.linkedin.com/in/christopherscottmann"]
+    "links": [
+      "https://www.linkedin.com/in/christopherscottmann"
+    ]
   },
   "workHistory": [
     {
@@ -73,42 +77,54 @@
       "title": "Systems Administrator",
       "start": "",
       "end": "",
-      "bullets": ["Redesigned infrastructure, migrated AWS, and automated Chef configurations."]
+      "bullets": [
+        "Redesigned infrastructure, migrated AWS, and automated Chef configurations."
+      ]
     },
     {
       "employer": "Electronic Arts (EA)",
       "title": "Infrastructure Engineer",
       "start": "",
       "end": "",
-      "bullets": ["Engineered experimental gaming infrastructure and technology projects."]
+      "bullets": [
+        "Engineered experimental gaming infrastructure and technology projects."
+      ]
     },
     {
       "employer": "Oracle USA",
       "title": "Oracle Transportation Management Specialist",
       "start": "",
       "end": "",
-      "bullets": ["Implemented enterprise deployment and production support."]
+      "bullets": [
+        "Implemented enterprise deployment and production support."
+      ]
     },
     {
       "employer": "CompuCom / GE Healthcare",
       "title": "Windows & Virtualization Engineer",
       "start": "",
       "end": "",
-      "bullets": ["Reduced server delivery from 90 days to four days."]
+      "bullets": [
+        "Reduced server delivery from 90 days to four days."
+      ]
     },
     {
       "employer": "Stonebridge Bank / Legg Mason / Progress Bank",
       "title": "Infrastructure Engineer",
       "start": "",
       "end": "",
-      "bullets": ["Administered enterprise banking infrastructure operations."]
+      "bullets": [
+        "Administered enterprise banking infrastructure operations."
+      ]
     },
     {
       "employer": "iCarnegie Global Learning / Haddon House Food Products / Xerox Connect",
       "title": "Infrastructure Consultant",
       "start": "",
       "end": "",
-      "bullets": ["Refined virtualization infrastructure."]
+      "bullets": [
+        "Refined virtualization infrastructure."
+      ]
     }
   ],
   "skills": [

@@ -1,21 +1,53 @@
 .main {
   max-width: 720px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 3rem 1.5rem 4rem;
+}
+
+/* Street-level register: leads the page, reads like a person talking. */
+.tagline {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+/* Technical register: present, quieter, underneath - for those who want it. */
+.summary {
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 .links {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin: 1.5rem 0;
+  gap: 0.5rem 1.5rem;
+}
+
+.links li {
+  min-width: 0;
+}
+
+.links a {
+  overflow-wrap: break-word;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+.linkItem {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
 }
 
 .skills {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -27,4 +59,5 @@
   border-radius: 6px;
   padding: 0.35rem 0.75rem;
   color: var(--text-secondary);
+  font-size: 0.9rem;
 }

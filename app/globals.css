@@ -1,15 +1,17 @@
 :root {
-  /* --accent, --bg, and --surface MUST be kept identical to the hex literals in
+  /* v2 palette (docs/design-direction.md) - warm dark, sodium-amber accent.
+     --accent, --bg, and --surface MUST be kept identical to the hex literals in
      lib/contrast.test.ts (Task F.1/F.2 cross-reference - the contrast gate's hex
      literals are not automatically derived from these tokens, so a human editing
-     either file must see this comment). */
-  --bg: #0a0a0c;
-  --surface: #141417;
-  --border: #26262b;
-  --text-primary: #ededf0;
-  --text-secondary: #8b8b93;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
+     either file must see this comment). All pairs verified >= 6.6:1 AA before
+     shipping, per the direction doc's binding constraint. */
+  --bg: #121009;
+  --surface: #1c1812;
+  --border: #332c1f;
+  --text-primary: #f0eade;
+  --text-secondary: #a89e8c;
+  --accent: #f5a623;
+  --accent-hover: #ffc14d;
   --font-sans: var(--font-inter), 'Geist Sans', system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), 'Geist Mono', ui-monospace, monospace;
 }
@@ -20,18 +22,78 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Dark-mode scrollbars and form controls on Windows (WIG dark-mode rule). */
+  color-scheme: dark;
+}
+
 body {
   margin: 0;
   background: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Type scale - v2 direction: the friendliness comes from scale, spacing, and
+   voice. Deliberate sizes replace UA defaults (v1's central execution gap). */
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.75rem;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: 1.35rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 2.5rem 0 0.75rem;
+  text-wrap: balance;
+}
+
+h3 {
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin: 0 0 0.5rem;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0 0 1rem;
 }
 
 a {
   color: var(--accent);
 }
 
-a:hover,
-a:focus-visible {
+a:hover {
   color: var(--accent-hover);
+}
+
+/* Visible keyboard focus everywhere - color-only focus was a v1 a11y gap. */
+:focus-visible {
+  outline: 2px solid var(--accent-hover);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--surface);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  z-index: 10;
+}
+
+.skip-link:focus-visible {
+  left: 0.75rem;
+  top: 0.75rem;
 }
