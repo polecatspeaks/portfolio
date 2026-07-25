@@ -37,6 +37,10 @@ polish (Law 6).
      (AI reviewers always emit something; a zero-comment gate invites loops).
   5. **Merge authority is the human operator only.** Agents never merge to `main`.
      Case-by-case carve-outs exist only when the human explicitly calls one out.
+  6. **Stability gate (amendment, 2026-07-24):** promotion to `main`/production only
+     happens at a stable state. Guide star: if a visitor to the site would think it
+     looks bad or broken, it does not get promoted - regardless of review threads
+     being resolved. Half-finished visual states stay on the branch.
   Branch protection on `main` (require PR, require conversation resolution,
   `enforce_admins` on - no admin bypass, because agents commit on the owner's login,
   so an admin escape hatch is an agent escape hatch; verified by an actual rejected
