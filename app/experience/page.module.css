@@ -6,11 +6,55 @@
 
 .job {
   border-bottom: 1px solid var(--border);
-  padding: 1.25rem 0;
+  padding: 1.75rem 0;
+}
+
+.job h2 {
+  margin-top: 0;
 }
 
 .job:last-of-type {
   border-bottom: none;
+}
+
+.meta {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0 0 1rem;
+}
+
+.story {
+  margin: 0 0 1rem;
+}
+
+.receipts {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  background: var(--surface);
+}
+
+.receipts summary {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.receipts summary:hover {
+  color: var(--text-primary);
+}
+
+.receipts ul {
+  margin: 0.75rem 0 0.25rem;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.receipts li {
+  margin-bottom: 0.5rem;
 }
 
 .dates {

@@ -12,7 +12,9 @@
 .brand {
   color: var(--text-primary);
   text-decoration: none;
+  font-family: var(--font-serif);
   font-weight: 600;
+  font-size: 1.15rem;
 }
 
 .brand:hover {

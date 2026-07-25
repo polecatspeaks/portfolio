@@ -1,4 +1,12 @@
 [
-  { "repo": "polecatspeaks/StarCar" },
-  { "repo": "polecatspeaks/Project-Bootstrapping" }
+  {
+    "repo": "polecatspeaks/StarCar",
+    "headline": "A dispatch board for agents",
+    "story": "StarCar is a visualizer for multi-agent and subagent processing. It treats an agentic development pipeline like a rail yard, with trains, cars, gates, and freight, so the work can be watched instead of guessed at. The Go server polls the artifact store and serves a live board, because even robots deserve a status board before they invent folklore."
+  },
+  {
+    "repo": "polecatspeaks/Project-Bootstrapping",
+    "headline": "Starting projects with memory",
+    "story": "Project-Bootstrapping is a set of starting files for new agentic projects, so Claude Code can begin with useful prior art instead of an empty room and vibes. It captures rules and exemplars together, because rules without examples tend to become decorative. The point is to avoid paying the founding tax twice."
+  }
 ]

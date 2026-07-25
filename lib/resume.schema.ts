@@ -6,11 +6,18 @@ export type ResumeSchema = {
   workHistory: Array<{
     employer: string;
     title: string;
+    // v2.1 (issue #18): plain-register story-per-job. The headline leads, the
+    // corporate title becomes metadata, the bullets become the receipts.
+    headline: string;
+    story: string;
     start: string;
     end: string | null;
     bullets: string[];
   }>;
   skills: string[];
+  // v2.1 (issue #15): plain-language capability lines, derived strictly from
+  // the skills/bullets above (Law 6 - simplify, never inflate).
+  capabilities: string[];
   education: Array<{ institution: string; program: string; year: string }>;
 };
 
@@ -33,6 +40,8 @@ export function validateResume(input: unknown): ResumeSchema {
     const w = entry as Record<string, unknown>;
     if (typeof w?.employer !== 'string') fail(`workHistory[${i}].employer`);
     if (typeof w?.title !== 'string') fail(`workHistory[${i}].title`);
+    if (typeof w?.headline !== 'string') fail(`workHistory[${i}].headline`);
+    if (typeof w?.story !== 'string') fail(`workHistory[${i}].story`);
     if (typeof w?.start !== 'string') fail(`workHistory[${i}].start`);
     if (w?.end !== null && typeof w?.end !== 'string') fail(`workHistory[${i}].end`);
     if (!Array.isArray(w?.bullets) || !w.bullets.every((b) => typeof b === 'string')) {
@@ -40,6 +49,13 @@ export function validateResume(input: unknown): ResumeSchema {
     }
   });
   if (!Array.isArray(r.skills) || !r.skills.every((s) => typeof s === 'string')) fail('skills');
+  if (
+    !Array.isArray(r.capabilities) ||
+    r.capabilities.length < 1 ||
+    !r.capabilities.every((c) => typeof c === 'string')
+  ) {
+    fail('capabilities');
+  }
   if (!Array.isArray(r.education)) fail('education');
   (r.education as unknown[]).forEach((entry, i) => {
     const e = entry as Record<string, unknown>;

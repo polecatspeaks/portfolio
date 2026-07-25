@@ -6,9 +6,18 @@ const VALID = {
   summary: 'Software engineer.',
   contact: { email: 'me@example.com', links: ['https://github.com/polecatspeaks'] },
   workHistory: [
-    { employer: 'Acme', title: 'Engineer', start: '2020-01', end: null, bullets: ['Did things'] },
+    {
+      employer: 'Acme',
+      title: 'Engineer',
+      headline: 'Kept the things running',
+      story: 'I did things, mostly on purpose.',
+      start: '2020-01',
+      end: null,
+      bullets: ['Did things'],
+    },
   ],
   skills: ['TypeScript'],
+  capabilities: ['I explain what the things do.'],
   education: [{ institution: 'State U', program: 'CS', year: '2019' }],
 };
 
@@ -34,6 +43,23 @@ test('missing tagline throws naming the field (v2 direction: plain-language regi
 test('workHistory[].end accepts string OR null, rejects undefined', () => {
   const bad = { ...VALID, workHistory: [{ ...VALID.workHistory[0], end: undefined }] };
   expect(() => validateResume(bad)).toThrow(/end/);
+});
+
+test('missing workHistory[].story throws naming the field (v2.1: story-per-job is required resume content)', () => {
+  const { story, ...job } = VALID.workHistory[0];
+  const bad = { ...VALID, workHistory: [job] };
+  expect(() => validateResume(bad)).toThrow(/story/);
+});
+
+test('missing workHistory[].headline throws naming the field', () => {
+  const { headline, ...job } = VALID.workHistory[0];
+  const bad = { ...VALID, workHistory: [job] };
+  expect(() => validateResume(bad)).toThrow(/headline/);
+});
+
+test('empty capabilities array throws (v2.1: the plain-language toolkit must not silently vanish)', () => {
+  const bad = { ...VALID, capabilities: [] };
+  expect(() => validateResume(bad)).toThrow(/capabilities/);
 });
 
 test('non-array skills throws', () => {

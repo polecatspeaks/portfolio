@@ -18,6 +18,32 @@
   margin-bottom: 1rem;
 }
 
+.card h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.sectionHint {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: -0.35rem 0 1.25rem;
+}
+
+.repoMeta {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem;
+}
+
+.techRegister {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
 .repoName {
   font-family: var(--font-mono);
 }

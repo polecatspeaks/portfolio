@@ -4,6 +4,10 @@ import * as path from 'path';
 export type PrivateProject = {
   repo: string;
   title: string;
+  // v2.1 (issue #19): plain-register headline + story; summary stays as the
+  // technical register underneath.
+  headline: string;
+  story: string;
   summary: string;
   screenshots: string[];
   date: string;
@@ -22,6 +26,8 @@ export function validatePrivateProjects(input: unknown): PrivateProject[] {
     const e = entry as Record<string, unknown>;
     if (typeof e?.repo !== 'string') fail(`[${i}].repo missing or wrong type`);
     if (typeof e?.title !== 'string') fail(`[${i}].title missing or wrong type`);
+    if (typeof e?.headline !== 'string') fail(`[${i}].headline missing or wrong type`);
+    if (typeof e?.story !== 'string') fail(`[${i}].story missing or wrong type`);
     if (typeof e?.summary !== 'string') fail(`[${i}].summary missing or wrong type`);
     if (!Array.isArray(e?.screenshots) || e.screenshots.length < 1) {
       fail(`[${i}].screenshots must be a non-empty array (Law 2 proof requirement)`);
