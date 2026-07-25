@@ -45,6 +45,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${cormorant.variable}`}>
       <body>
+        {/* Scroll-settle motion (issue #17) starts content at opacity 0 and
+            relies on the Reveal client component to fade it in. If JS is
+            disabled or hydration fails, this fallback keeps every .reveal
+            section fully visible - graceful degradation over vanishing pages. */}
+        <noscript>
+          <style>{`.reveal { opacity: 1; transform: none; }`}</style>
+        </noscript>
         {/* Each page's <main> carries id="main" for this target. */}
         <a href="#main" className="skip-link">
           Skip to main content

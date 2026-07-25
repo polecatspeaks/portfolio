@@ -69,7 +69,10 @@ export default async function ProjectsPage() {
           Private work, shown by screenshot - the code stays home.
         </p>
         {privateProjects.map(({ title, headline, story, summary, screenshots, date }) => (
-          <Reveal key={title}>
+          // Key includes date because titles alone aren't guaranteed unique;
+          // the unique `repo` field stays deliberately unrendered (private
+          // repo paths are not site content).
+          <Reveal key={`${title}-${date}`}>
             <article className={styles.card}>
               <h3>{headline}</h3>
               <p className={styles.repoMeta}>

@@ -37,6 +37,11 @@ test('missing story throws naming the field (v2.1: two-register project cards)',
   expect(() => validatePrivateProjects([bad])).toThrow(/story/);
 });
 
+test('missing headline throws naming the field (v2.1: two-register project cards)', () => {
+  const { headline, ...bad } = VALID_ENTRY;
+  expect(() => validatePrivateProjects([bad])).toThrow(/headline/);
+});
+
 test('lastVerifiedSha must look like a real 40-char hex sha', () => {
   const bad = { ...VALID_ENTRY, lastVerifiedSha: 'not-a-sha' };
   expect(() => validatePrivateProjects([bad])).toThrow(/lastVerifiedSha/);
