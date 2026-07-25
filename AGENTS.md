@@ -21,7 +21,31 @@ polish (Law 6).
 
 - **Right-sizing.** This is one person, one small static site. A content update, a copy
   fix, or a styling change does not need a design doc, a spec, a plan, or a reviewer car.
-  Just make the change, verify it against the constitution, and commit.
+  Just make the change, verify it against the constitution, and commit - on a feature
+  branch, per the branch-and-PR SOP below (that part is not ceremony; it is the
+  no-commits-to-main rule).
+- **Branch-and-PR SOP (standing, ratified 2026-07-24).** No direct commits to `main`.
+  All work happens on a short-lived feature branch cut from `main`, merged back via PR,
+  branch deleted after merge. No long-lived `dev` branch. The PR review process:
+  1. Agent proposes the PR (what, why, diff summary). Human agrees and authorizes.
+  2. Agent creates the PR and requests a Copilot code review.
+  3. Agent addresses every reviewer comment: either fix it, or reject it explicitly
+     with citations to the laws (`process/constitution.md`) and/or the ladder. Each
+     thread gets a closing comment with that rationale, then is resolved.
+  4. Review rounds are capped at 2. The merge gate is "every comment addressed or
+     rejected with cited rationale, all threads resolved" - **not** zero comments
+     (AI reviewers always emit something; a zero-comment gate invites loops).
+  5. **Merge authority is the human operator only.** Agents never merge to `main`.
+     Case-by-case carve-outs exist only when the human explicitly calls one out.
+  6. **Stability gate (amendment, 2026-07-24):** promotion to `main`/production only
+     happens at a stable state. Guide star: if a visitor to the site would think it
+     looks bad or broken, it does not get promoted - regardless of review threads
+     being resolved. Half-finished visual states stay on the branch.
+
+  Branch protection on `main` (require PR, require conversation resolution,
+  `enforce_admins` on - no admin bypass, because agents commit on the owner's login,
+  so an admin escape hatch is an agent escape hatch; verified by an actual rejected
+  push) enforces this mechanically.
 - **Reserve the design → spec → plan ladder** (`process/the-ladder.md`) for genuinely
   structural work only - e.g., picking the framework/hosting architecture, or a rewrite
   of how content is sourced. If you're not sure it qualifies, it probably doesn't.
@@ -52,7 +76,16 @@ polish (Law 6).
   (a fine-grained PAT scoped to read-only Contents access on the private `STAR` repo)
   is set in Vercel Project Settings -> Environment Variables and required at build
   time - its absence fails the build closed (see `lib/env.ts`), which is by design,
-  not a bug.
+  not a bug. **Observed discrepancy (2026-07-24, tracked - human decision pending):**
+  Vercel's deployment history shows recent `main` pushes deploying directly with
+  `target: production`, i.e. the manual-promotion gate described above is not
+  currently active. **Authoritative interim rule: treat every merge to `main` as
+  immediately visitor-facing production.** The PR review + stability gate in the
+  branch-and-PR SOP above is the operative pre-prod gate, and post-merge
+  verification of `https://star-stack.io/` is mandatory (verification honesty).
+  The human operator will decide whether to re-enable the Vercel manual-promotion
+  setting or formally retire the paragraph above; whichever is chosen, this
+  section gets rewritten to describe only that one workflow.
 - **Live URL:** `https://star-stack.io/` (custom domain attached to the Vercel
   project, excluded from Vercel's Deployment Protection login wall - unlike the
   default `*.vercel.app` alias URLs, which now require a Vercel account login to
