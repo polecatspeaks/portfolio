@@ -37,8 +37,10 @@ polish (Law 6).
      (AI reviewers always emit something; a zero-comment gate invites loops).
   5. **Merge authority is the human operator only.** Agents never merge to `main`.
      Case-by-case carve-outs exist only when the human explicitly calls one out.
-  Branch protection on `main` (require PR, require conversation resolution) enforces
-  this mechanically.
+  Branch protection on `main` (require PR, require conversation resolution,
+  `enforce_admins` on - no admin bypass, because agents commit on the owner's login,
+  so an admin escape hatch is an agent escape hatch; verified by an actual rejected
+  push) enforces this mechanically.
 - **Reserve the design → spec → plan ladder** (`process/the-ladder.md`) for genuinely
   structural work only - e.g., picking the framework/hosting architecture, or a rewrite
   of how content is sourced. If you're not sure it qualifies, it probably doesn't.
