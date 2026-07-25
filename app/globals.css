@@ -127,6 +127,19 @@ a:hover {
   transition:
     opacity 0.6s ease-out,
     transform 0.6s ease-out;
+  /* Failsafe: if hydration never runs (JS error, blocked script), this
+     zero-duration delayed animation forces the content visible anyway.
+     When Reveal works, .reveal-in lands well before the delay expires.
+     The no-JS case is additionally covered by the <noscript> style in
+     app/layout.tsx. */
+  animation: reveal-failsafe 0s 2.5s forwards;
+}
+
+@keyframes reveal-failsafe {
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .reveal-in {
@@ -139,5 +152,6 @@ a:hover {
     opacity: 1;
     transform: none;
     transition: none;
+    animation: none;
   }
 }

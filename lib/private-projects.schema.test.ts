@@ -42,6 +42,10 @@ test('missing headline throws naming the field (v2.1: two-register project cards
   expect(() => validatePrivateProjects([bad])).toThrow(/headline/);
 });
 
+test('blank/whitespace-only story throws (effectively-missing content must not pass)', () => {
+  expect(() => validatePrivateProjects([{ ...VALID_ENTRY, story: '  ' }])).toThrow(/story/);
+});
+
 test('lastVerifiedSha must look like a real 40-char hex sha', () => {
   const bad = { ...VALID_ENTRY, lastVerifiedSha: 'not-a-sha' };
   expect(() => validatePrivateProjects([bad])).toThrow(/lastVerifiedSha/);

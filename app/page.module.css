@@ -35,7 +35,14 @@
   content: '';
   position: absolute;
   inset: -18%;
-  background: radial-gradient(closest-side, rgba(245, 166, 35, 0.16), transparent 70%);
+  /* Lamplight glow derived from the documented --accent token at low alpha
+     (docs/design-direction.md: "lamplight, not neon") - not a free-floating
+     color literal. */
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--accent) 16%, transparent),
+    transparent 70%
+  );
   z-index: 0;
   pointer-events: none;
 }

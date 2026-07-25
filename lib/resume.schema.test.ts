@@ -62,6 +62,11 @@ test('empty capabilities array throws (v2.1: the plain-language toolkit must not
   expect(() => validateResume(bad)).toThrow(/capabilities/);
 });
 
+test('blank/whitespace-only story throws (effectively-missing content must not pass)', () => {
+  const bad = { ...VALID, workHistory: [{ ...VALID.workHistory[0], story: '   ' }] };
+  expect(() => validateResume(bad)).toThrow(/story/);
+});
+
 test('non-array skills throws', () => {
   const bad = { ...VALID, skills: 'TypeScript' };
   expect(() => validateResume(bad)).toThrow(/skills/);

@@ -26,8 +26,12 @@ export function validatePrivateProjects(input: unknown): PrivateProject[] {
     const e = entry as Record<string, unknown>;
     if (typeof e?.repo !== 'string') fail(`[${i}].repo missing or wrong type`);
     if (typeof e?.title !== 'string') fail(`[${i}].title missing or wrong type`);
-    if (typeof e?.headline !== 'string') fail(`[${i}].headline missing or wrong type`);
-    if (typeof e?.story !== 'string') fail(`[${i}].story missing or wrong type`);
+    if (typeof e?.headline !== 'string' || e.headline.trim() === '') {
+      fail(`[${i}].headline missing, wrong type, or blank`);
+    }
+    if (typeof e?.story !== 'string' || e.story.trim() === '') {
+      fail(`[${i}].story missing, wrong type, or blank`);
+    }
     if (typeof e?.summary !== 'string') fail(`[${i}].summary missing or wrong type`);
     if (!Array.isArray(e?.screenshots) || e.screenshots.length < 1) {
       fail(`[${i}].screenshots must be a non-empty array (Law 2 proof requirement)`);

@@ -20,8 +20,12 @@ export function validateFeaturedMeta(input: unknown): FeaturedMeta[] {
   return (input as unknown[]).map((entry, i) => {
     const e = entry as Record<string, unknown>;
     if (typeof e?.repo !== 'string') fail(`[${i}].repo missing or wrong type`);
-    if (typeof e?.headline !== 'string') fail(`[${i}].headline missing or wrong type`);
-    if (typeof e?.story !== 'string') fail(`[${i}].story missing or wrong type`);
+    if (typeof e?.headline !== 'string' || e.headline.trim() === '') {
+      fail(`[${i}].headline missing, wrong type, or blank`);
+    }
+    if (typeof e?.story !== 'string' || e.story.trim() === '') {
+      fail(`[${i}].story missing, wrong type, or blank`);
+    }
     return e as FeaturedMeta;
   });
 }

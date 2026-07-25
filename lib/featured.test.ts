@@ -17,6 +17,10 @@ test('missing story throws naming the field', () => {
   expect(() => validateFeaturedMeta([bad])).toThrow(/story/);
 });
 
+test('blank/whitespace-only story throws (an effectively-missing story must not pass CI)', () => {
+  expect(() => validateFeaturedMeta([{ ...VALID, story: '   ' }])).toThrow(/story/);
+});
+
 test('the real data file validates (build-time contract for the projects page)', () => {
   expect(() => validateFeaturedMeta(featured)).not.toThrow();
 });
