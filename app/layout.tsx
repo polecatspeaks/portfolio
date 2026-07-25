@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono, Cormorant_Garamond } from 'next/font/google';
 import './globals.css';
 import SiteNav from './components/SiteNav';
 import SiteFooter from './components/SiteFooter';
+import { Analytics } from '@vercel/analytics/next';
 
 // Issue #8: globals.css previously only *named* 'Inter'/'JetBrains Mono' in its
 // font-family stacks with no actual font source behind them - every browser
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteNav />
         {children}
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
