@@ -123,33 +123,6 @@
   margin: 0 0 0.5rem;
 }
 
-.links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-}
-
-.links li {
-  min-width: 0;
-}
-
-.links a {
-  overflow-wrap: break-word;
-}
-
-.mono {
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-}
-
-.linkItem {
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-}
-
 .skills {
   list-style: none;
   padding: 0;

@@ -89,26 +89,6 @@ export default async function HomePage() {
           <p className={styles.summary}>{resume.summary}</p>
         </section>
       </Reveal>
-
-      <Reveal>
-        <section aria-labelledby="contact-heading">
-          <h2 id="contact-heading">Find me</h2>
-          <ul className={styles.links}>
-            <li>
-              <a href={`mailto:${resume.contact.email}`} className={styles.mono}>
-                {resume.contact.email}
-              </a>
-            </li>
-            {resume.contact.links.map((link) => (
-              <li key={link}>
-                <a href={link} className={styles.linkItem}>
-                  {link.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </Reveal>
     </main>
   );
 }
