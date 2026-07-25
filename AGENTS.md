@@ -31,7 +31,10 @@ polish (Law 6).
   2. Agent creates the PR and requests a Copilot code review.
   3. Agent addresses every reviewer comment: either fix it, or reject it explicitly
      with citations to the laws (`process/constitution.md`) and/or the ladder. Each
-     thread gets a closing comment with that rationale, then is resolved.
+     thread gets a closing comment with that rationale, then is resolved. After
+     addressing and resolving the round's threads, the agent **re-requests
+     Copilot's review** (amendment, 2026-07-24) - Copilot does not reliably
+     re-review new pushes without an explicit re-request.
   4. Review rounds are capped at 2. The merge gate is "every comment addressed or
      rejected with cited rationale, all threads resolved" - **not** zero comments
      (AI reviewers always emit something; a zero-comment gate invites loops).
