@@ -76,13 +76,16 @@ polish (Law 6).
   (a fine-grained PAT scoped to read-only Contents access on the private `STAR` repo)
   is set in Vercel Project Settings -> Environment Variables and required at build
   time - its absence fails the build closed (see `lib/env.ts`), which is by design,
-  not a bug. **Observed discrepancy (2026-07-24, unresolved):** Vercel's deployment
-  history shows recent `main` pushes deploying directly with `target: production`,
-  i.e. the manual-promotion gate described above does not appear to be active in the
-  dashboard right now. With the branch-and-PR SOP in place, the PR review is now the
-  primary pre-prod gate; the human operator should decide whether to re-enable the
-  Vercel manual-promotion setting or formally retire it, and this section updated
-  to match whichever is chosen.
+  not a bug. **Observed discrepancy (2026-07-24, tracked - human decision pending):**
+  Vercel's deployment history shows recent `main` pushes deploying directly with
+  `target: production`, i.e. the manual-promotion gate described above is not
+  currently active. **Authoritative interim rule: treat every merge to `main` as
+  immediately visitor-facing production.** The PR review + stability gate in the
+  branch-and-PR SOP above is the operative pre-prod gate, and post-merge
+  verification of `https://star-stack.io/` is mandatory (verification honesty).
+  The human operator will decide whether to re-enable the Vercel manual-promotion
+  setting or formally retire the paragraph above; whichever is chosen, this
+  section gets rewritten to describe only that one workflow.
 - **Live URL:** `https://star-stack.io/` (custom domain attached to the Vercel
   project, excluded from Vercel's Deployment Protection login wall - unlike the
   default `*.vercel.app` alias URLs, which now require a Vercel account login to
