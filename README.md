@@ -43,6 +43,7 @@ prior art someone already wrote.
 | `scripts/` | Verdict landing and verification, doc-policy checks. |
 | `LESSONS.md` | Every lesson, with the scar that earned it. Read this before adopting anything. |
 | `ADOPTION.md` | **Start here.** The staged path, and what NOT to install. |
+| `WORKING-WITH-CHRIS.md` | The operator handoff - what the owner expects from an agent, how to report, how to disagree. Operator-specific rather than portable; read it as an exemplar of the shape, then write your own. |
 
 ## Read `ADOPTION.md` first, and take the staging seriously
 
