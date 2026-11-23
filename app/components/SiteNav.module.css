@@ -46,3 +46,14 @@
   text-decoration: underline;
   text-underline-offset: 0.3em;
 }
+
+/* Four links plus the name do not fit on one line at phone width (the name
+   wrapped and "Blog" ran into the right edge at 390px), so narrow screens
+   stack the name above the links. */
+@media (max-width: 520px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+}

@@ -1,0 +1,152 @@
+.main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.lede {
+  color: var(--text-secondary);
+}
+
+.empty {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.item {
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item h2 {
+  margin: 0 0 0.5rem;
+}
+
+.item h2 a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.item h2 a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.summary {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.meta {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem;
+}
+
+.draft {
+  color: var(--accent);
+}
+
+.back {
+  margin-top: 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+/* Post body: rendered Markdown, so style the elements directly. */
+.body {
+  margin-top: 1.5rem;
+}
+
+.body h2 {
+  margin-top: 2.25rem;
+}
+
+.body h3 {
+  margin-top: 1.75rem;
+}
+
+.body ul,
+.body ol {
+  padding-left: 1.4rem;
+  margin: 0 0 1rem;
+}
+
+.body li {
+  margin-bottom: 0.35rem;
+}
+
+.body blockquote {
+  margin: 1.25rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  color: var(--text-secondary);
+}
+
+.body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.body code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.05em 0.35em;
+}
+
+.body pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  margin: 0 0 1rem;
+}
+
+.body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.body th,
+.body td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
