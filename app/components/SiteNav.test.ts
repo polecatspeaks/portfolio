@@ -19,6 +19,11 @@ describe('SiteNav', () => {
     expect(source).toContain('href="/projects"');
   });
 
+  it('links to /blog, staying active on individual posts', () => {
+    expect(source).toContain('href="/blog"');
+    expect(source).toMatch(/activeProps\(pathname, '\/blog', true\)/);
+  });
+
   it('reads the current route via usePathname for active-link highlighting', () => {
     expect(source).toContain('usePathname');
   });
