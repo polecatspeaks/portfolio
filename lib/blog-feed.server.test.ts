@@ -1,4 +1,4 @@
-import { buildFeed } from './blog-feed.server';
+import { absolutizeUrls, buildFeed } from './blog-feed.server';
 import type { Post } from './blog.server';
 
 const post = (over: Partial<Post> = {}): Post => ({
@@ -34,6 +34,23 @@ test('escapes XML special characters in titles, summaries and content', () => {
   expect(xml).toContain('<title>Fuel &amp; &quot;pit&quot; &lt;laps&gt;</title>');
   expect(xml).toContain('<description>Ruth&apos;s call</description>');
   expect(xml).toContain('<content:encoded>&lt;p&gt;Hello &amp;amp; welcome&lt;/p&gt;</content:encoded>');
+});
+
+test('relative links and images in the full content become absolute site URLs', () => {
+  const xml = buildFeed([
+    post({
+      html: '<p><a href="/projects">p</a> <a href="#notes">n</a> <a href="other">o</a> <img src="/blog/lap.png" alt="lap"></p>',
+    }),
+  ]);
+  expect(xml).toContain('href=&quot;https://star-stack.io/projects&quot;');
+  expect(xml).toContain('href=&quot;https://star-stack.io/blog/first-lap#notes&quot;');
+  expect(xml).toContain('href=&quot;https://star-stack.io/blog/other&quot;');
+  expect(xml).toContain('src=&quot;https://star-stack.io/blog/lap.png&quot;');
+});
+
+test('absolute and non-http link targets are left alone', () => {
+  const html = '<a href="https://example.com/x?a=1&amp;b=2">e</a> <a href="mailto:me@example.com">m</a>';
+  expect(absolutizeUrls(html, 'https://star-stack.io/blog/first-lap')).toBe(html);
 });
 
 test('an empty blog is still a valid channel with no items and no lastBuildDate', () => {

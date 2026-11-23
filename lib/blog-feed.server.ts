@@ -12,6 +12,20 @@ function xml(s: string): string {
     .replace(/'/g, '&apos;');
 }
 
+/**
+ * Feed readers show the post HTML away from star-stack.io, so relative link
+ * and image targets (`/projects`, `/blog/x.png`, `#notes`) would resolve
+ * against the reader's own origin. Resolve every href/src against the post's
+ * URL; targets that already carry a scheme (https:, mailto:) are unchanged.
+ * The HTML comes from markdown-it, which always double-quotes attributes.
+ */
+export function absolutizeUrls(html: string, postUrl: string): string {
+  return html.replace(/\b(href|src)="([^"]*)"/g, (whole, attr: string, value: string) => {
+    if (/^[a-z][a-z0-9+.-]*:/i.test(value)) return whole;
+    return `${attr}="${new URL(value, postUrl).href}"`;
+  });
+}
+
 /** RFC 822 date at 12:00 UTC, so the day never shifts in any reader's time zone. */
 function rfc822(isoDate: string): string {
   return new Date(`${isoDate}T12:00:00Z`).toUTCString();
@@ -34,7 +48,7 @@ export function buildFeed(posts: Post[]): string {
         `      <pubDate>${rfc822(p.date)}</pubDate>`,
         `      <description>${xml(p.summary)}</description>`,
         ...p.tags.map((t) => `      <category>${xml(t)}</category>`),
-        `      <content:encoded>${xml(p.html)}</content:encoded>`,
+        `      <content:encoded>${xml(absolutizeUrls(p.html, url))}</content:encoded>`,
         '    </item>',
       ].join('\n');
     })
