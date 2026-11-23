@@ -36,9 +36,13 @@ Ratified by: @polecatspeaks (project owner).
    that breaks it.** A broken production site outranks any in-progress work; revert
    before you debug forward.
 
-5. **No visitor data is collected, silently or otherwise.** The site is
-   static/informational. Adding analytics, a contact form, or any tracking later
-   requires amending this law explicitly — not quietly introducing it.
+5. **No visitor data is collected, silently or otherwise, except Vercel Web Analytics.**
+   The site is static/informational. The one allowed collector is Vercel Web Analytics:
+   cookieless, aggregate page-view counts (page, referrer, country, device and browser
+   type), with no cookies, no accounts, and nothing that follows a visitor across
+   sites. Adding anything else (Speed Insights, another analytics tool, a contact form,
+   a mailing list, comments, or any tracking) requires amending this law explicitly —
+   not quietly introducing it.
 
 6. **Accuracy outranks polish.** An outdated fact is a defect; plain, correct prose is
    not.
@@ -54,3 +58,4 @@ reasoning recorded here.
 |---|---|---|---|
 | 2026-07-24 | 2 | Added the private-repo branch (summary + screenshots instead of a dead/inaccessible link) | Some project work lives in private repos; the original wording would have forced either exposing private code or leaving the claim unverifiable. |
 | 2026-11-23 | 3 | Scoped the law to what the site claims about me and my work, and added the blog exception (dated first-person posts, still bound by Laws 1, 2 and 6; going out of date later is not a defect; a post wrong when written gets a dated correction note, never a rewrite) | A dev blog of progress updates and musings is a third kind of content that neither the resume nor the repos can be the source of. Without the exception, every post would be a Law 3 defect; without the limits, the blog would become the drifting third copy the law exists to stop. |
+| 2026-11-23 | 5 | Allowed Vercel Web Analytics as the one visitor-data collector, and named what still needs an amendment (Speed Insights, other analytics, forms, mailing list, comments, any tracking) | Web Analytics was added in PR #21 (2026-07-25) without the amendment this law requires, so the site has been breaking Law 5 since then. The owner chose to keep it: it is cookieless and aggregate, and page-view counts are useful once the blog exists. Recording it here makes the law true again instead of quietly ignored. |

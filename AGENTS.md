@@ -14,7 +14,8 @@ anything that touches site content, links, or deploys. In short: never state an
 unverifiable credential (Law 1); every project link is either a real public repo or a
 screenshot summary for private work (Law 2); the resume and my GitHub repos are the only
 two sources of truth for content, except dated first-person blog posts (Law 3); never break the live Vercel production build
-(Law 4); no visitor data collection without an explicit amendment (Law 5); accuracy over
+(Law 4); no visitor data collection beyond Vercel Web Analytics without an explicit
+amendment (Law 5); accuracy over
 polish (Law 6).
 
 ## Currently active (Stage 0-1 of ADOPTION.md)
