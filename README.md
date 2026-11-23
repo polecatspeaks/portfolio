@@ -3,8 +3,9 @@
 Status: Current
 
 The source of Christopher Mann's personal portfolio site, live at
-<https://star-stack.io>. It has three pages: home (`/`), experience (`/experience`) and
-projects (`/projects`), plus a generated `robots.txt` and `sitemap.xml`.
+<https://star-stack.io>. It has home (`/`), experience (`/experience`), projects
+(`/projects`) and a blog (`/blog`, one page per post, RSS at `/blog/feed.xml`), plus a
+generated `robots.txt` and `sitemap.xml`.
 
 ## Stack and hosting
 
@@ -20,7 +21,9 @@ projects (`/projects`), plus a generated `robots.txt` and `sitemap.xml`.
 
 ## Where the content comes from
 
-The site renders two sources of truth (Law 3): the resume and the GitHub repos.
+The site renders two sources of truth (Law 3): the resume and the GitHub repos. The one
+exception is the blog: dated first-person posts in `content/blog/`, written per
+[docs/blog-authoring.md](docs/blog-authoring.md).
 
 | What | File | Notes |
 |---|---|---|
