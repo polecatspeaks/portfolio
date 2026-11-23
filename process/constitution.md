@@ -20,9 +20,17 @@ Ratified by: @polecatspeaks (project owner).
    summary of the work with screenshots as proof, so the claim stays verifiable without
    exposing private code.
 
-3. **The resume and my actual GitHub repos are the only two sources of truth.** The site
-   is a *rendering* of them, never a third, independently-drifting copy. If the site
-   claims something neither source supports, that's a defect.
+3. **The resume and my actual GitHub repos are the only two sources of truth for what the
+   site claims about me and my work.** The site is a *rendering* of them, never a third,
+   independently-drifting copy. If the site claims something neither source supports,
+   that's a defect. **One exception: the blog (`/blog`).** Each post is my own dated,
+   first-person writing: a record of what I was doing and thinking on that date, not a
+   standing claim about my skills or work. Posts still obey Law 1 (no credential the
+   resume or repos can't back, and a plan is written as a plan, never as shipped work),
+   Law 2 (a link is real or it isn't made) and Law 6 (accurate on the day it was written).
+   A post going out of date later is not a defect, so it is never rewritten to match
+   later events; if it was wrong on the day it was written, it gets a dated correction
+   note.
 
 4. **The live Vercel production deployment is what the public sees — never ship a change
    that breaks it.** A broken production site outranks any in-progress work; revert
@@ -45,3 +53,4 @@ reasoning recorded here.
 | Date | Law | Change | Reasoning |
 |---|---|---|---|
 | 2026-07-24 | 2 | Added the private-repo branch (summary + screenshots instead of a dead/inaccessible link) | Some project work lives in private repos; the original wording would have forced either exposing private code or leaving the claim unverifiable. |
+| 2026-11-23 | 3 | Scoped the law to what the site claims about me and my work, and added the blog exception (dated first-person posts, still bound by Laws 1, 2 and 6; going out of date later is not a defect; a post wrong when written gets a dated correction note, never a rewrite) | A dev blog of progress updates and musings is a third kind of content that neither the resume nor the repos can be the source of. Without the exception, every post would be a Law 3 defect; without the limits, the blog would become the drifting third copy the law exists to stop. |
