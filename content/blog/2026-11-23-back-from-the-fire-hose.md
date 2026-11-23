@@ -2,7 +2,7 @@
 title: Back from the fire hose
 summary: A few months away from STAR, why, and where it stands now, with a hopeful eye on a 1.0 in Q2 next year.
 tags: [star]
-draft: true
+draft: false
 ---
 
 I took a few months off from developing [STAR](/projects). Not because I lost interest; life kind of happened.
