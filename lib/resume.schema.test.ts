@@ -4,6 +4,11 @@ const VALID = {
   name: 'Ada Example',
   tagline: 'I explain complicated systems in plain words.',
   summary: 'Software engineer.',
+  seo: {
+    jobTitle: 'Software Engineer',
+    homeDescription: 'Ada Example, software engineer.',
+    experienceDescription: 'Kept the things running at Acme.',
+  },
   contact: { email: 'me@example.com', links: ['https://github.com/polecatspeaks'] },
   workHistory: [
     {
@@ -78,4 +83,14 @@ test('blank/whitespace-only tagline throws (the plain register must never render
 test('non-array skills throws', () => {
   const bad = { ...VALID, skills: 'TypeScript' };
   expect(() => validateResume(bad)).toThrow(/skills/);
+});
+
+test('missing seo block throws naming the field', () => {
+  const { seo, ...rest } = VALID;
+  expect(() => validateResume(rest)).toThrow(/seo\.jobTitle/);
+});
+
+test('an seo description over 160 chars throws - Google truncates search snippets around there', () => {
+  const long = { ...VALID, seo: { ...VALID.seo, homeDescription: 'x'.repeat(161) } };
+  expect(() => validateResume(long)).toThrow(/seo\.homeDescription/);
 });

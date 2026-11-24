@@ -19,9 +19,12 @@ test('home page renders public contact links, not just the email (round-4 plan-r
   expect(layoutSource).toMatch(/<SiteFooter \/>/);
 });
 
-test('home page exports metadata deriving its description from the real resume summary, not a hardcoded string (issue #3/#4)', () => {
+test('home page exports metadata deriving its title/description from resume data, not a hardcoded string (issue #3/#4, SEO pass)', () => {
   const source = require('fs').readFileSync(require.resolve('./page.tsx'), 'utf8');
   expect(source).toMatch(/generateMetadata/);
-  expect(source).toMatch(/resume\.summary/);
+  expect(source).toMatch(/description:\s*resume\.seo\.homeDescription/);
+  expect(source).toMatch(/resume\.seo\.jobTitle/);
+  expect(source).toMatch(/canonical:\s*['"]\/['"]/);
   expect(source).toMatch(/openGraph:/);
+  expect(source).toMatch(/application\/ld\+json/);
 });

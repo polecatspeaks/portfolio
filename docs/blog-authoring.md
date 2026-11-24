@@ -17,7 +17,7 @@ a dated, first-person record of the day it was written.
    ```
    ---
    title: First lap
-   summary: One sentence, shown on the index and in the RSS feed.
+   summary: One sentence, shown on the index, in the RSS feed, and as the search/link-preview description (aim for 160 characters or fewer).
    tags: [star, lmu]
    draft: true
    ---

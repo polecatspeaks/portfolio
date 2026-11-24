@@ -18,8 +18,28 @@ test('projects page module declares force-static rendering explicitly, not impli
 test('projects page exports metadata with a real page title and Open Graph block (issue #3/#4)', () => {
   const source = require('fs').readFileSync(require.resolve('./page.tsx'), 'utf8');
   expect(source).toMatch(/export const metadata/);
-  expect(source).toMatch(/title:\s*['"]Projects['"]/);
+  expect(source).toMatch(/title:\s*['"]Projects · /);
   expect(source).toMatch(/openGraph:/);
+  expect(source).toMatch(/canonical:\s*['"]\/projects['"]/);
+});
+
+test('projects SEO description names only projects that exist in the project data, and fits a search snippet (Law 3)', () => {
+  const source: string = require('fs').readFileSync(require.resolve('./page.tsx'), 'utf8');
+  const m = source.match(/const PROJECTS_DESCRIPTION =\s*'([^']+)'/);
+  expect(m).not.toBeNull();
+  const description = m![1];
+  expect(description.length).toBeLessThanOrEqual(160);
+  const priv = require('../../data/private-projects.json');
+  const featured = require('../../data/featured-repos.json');
+  const repoNames = [...priv, ...featured].map((p: { repo: string }) => p.repo.split('/')[1]);
+  for (const named of ['STAR', 'StarCar']) {
+    expect(description).toContain(named);
+    expect(repoNames).toContain(named);
+  }
+  const star = priv.find((p: { repo: string }) => p.repo === 'polecatspeaks/STAR');
+  expect(star.story).toMatch(/sim-racing/);
+  expect(star.story).toMatch(/live telemetry/);
+  expect(star.story).toMatch(/AI strategy assistant/);
 });
 
 test('projects page uses next/image for private-project screenshots instead of raw <img> (issue #7)', () => {

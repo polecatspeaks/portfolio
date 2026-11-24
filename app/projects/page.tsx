@@ -2,17 +2,28 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getFeaturedRepos } from '../../lib/github.server';
 import { getFeaturedMeta } from '../../lib/featured';
+import { OG_IMAGE } from '../../lib/seo';
 import { getPrivateProjects } from '../../lib/private-projects.server';
 import Reveal from '../components/Reveal';
 import styles from './page.module.css';
 
+// SEO pass: names only projects present in data/private-projects.json and
+// data/featured-repos.json, restating their own headlines/stories (Law 3).
+// app/projects/page.test.ts checks every project named here exists there.
+const PROJECTS_DESCRIPTION =
+  'STAR, a private sim-racing tool: race strategy from live telemetry plus an AI strategy assistant. Also StarCar and other tools for AI agent development.';
+
 export const metadata: Metadata = {
-  title: 'Projects',
-  description: 'Public and private project portfolio.',
+  title: 'Projects · Sim Racing & AI Tools',
+  description: PROJECTS_DESCRIPTION,
+  alternates: { canonical: '/projects' },
   openGraph: {
-    title: 'Projects · Christopher Mann',
-    description: 'Public and private project portfolio.',
+    title: 'Projects · Sim Racing & AI Tools · Christopher Mann',
+    description: PROJECTS_DESCRIPTION,
     type: 'website',
+    url: '/projects',
+    images: [OG_IMAGE],
+    siteName: 'Christopher Mann',
   },
 };
 
