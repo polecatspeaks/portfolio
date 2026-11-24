@@ -2,21 +2,26 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getResume } from '../lib/resume';
+import { homeJsonLd, serializeJsonLd } from '../lib/seo';
 import Reveal from './components/Reveal';
 import styles from './page.module.css';
 
-// Issue #3/#4: description/OG text is sourced from the same resume.summary
-// field the page itself renders - never a hand-written duplicate that could
-// silently drift from the real resume content (constitution Law 3).
+// Issue #3/#4 + SEO pass: title/description come from resume.seo - a short
+// restatement of resume.summary sized for search snippets (the full summary
+// was ~450 chars; Google cuts at ~155). Still resume data, never page copy
+// that could drift (constitution Law 3).
 export async function generateMetadata(): Promise<Metadata> {
   const resume = getResume();
   return {
-    title: 'Home · Christopher Mann',
-    description: resume.summary,
+    title: { absolute: `${resume.name} · ${resume.seo.jobTitle}` },
+    description: resume.seo.homeDescription,
+    alternates: { canonical: '/' },
     openGraph: {
-      title: 'Christopher Mann - Portfolio',
-      description: resume.summary,
-      type: 'website',
+      title: `${resume.name} · ${resume.seo.jobTitle}`,
+      description: resume.seo.homeDescription,
+      type: 'profile',
+      url: '/',
+      siteName: resume.name,
     },
   };
 }
@@ -31,6 +36,12 @@ export default async function HomePage() {
   const resume = getResume();
   return (
     <main id="main" className={styles.main}>
+      {/* schema.org Person + WebSite, so search engines can tie the name to
+          the job title and the public profiles (lib/seo.ts). */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(homeJsonLd(resume)) }}
+      />
       <section className={styles.hero}>
         <div className={styles.heroText}>
           <h1>{resume.name}</h1>

@@ -2,6 +2,11 @@
   "name": "Christopher Mann",
   "tagline": "I keep big, complicated systems running - the kind that deliver television across entire networks - and I build automation that takes the tedious, error-prone work off human plates. The part I care about most: making the intimidating parts of technology understandable and dependable for the people who rely on them.",
   "summary": "AI-Driven DevOps & MLOps Lead | Cloud Infrastructure | Automation Engineering. Seasoned professional with extensive experience in engineering scalable cloud platforms, intelligent automation solutions, and resilient production systems by combining deep infrastructure expertise with emerging LLM technologies. Instrumental in DevOps engineering, MLOps architecture, cloud-native platforms, and AI-powered automation across enterprise environments.",
+  "seo": {
+    "jobTitle": "AI-Driven DevOps & MLOps Lead",
+    "homeDescription": "Christopher Mann, AI-driven DevOps & MLOps lead: cloud, Kubernetes, CI/CD and automation. Builder of STAR, an AI race-strategy tool for sim racing.",
+    "experienceDescription": "Eight years at Comcast keeping live TV and streaming running, plus DevOps team leadership, hybrid cloud, data center migrations and automation."
+  },
   "contact": {
     "email": "mannchristophers@gmail.com",
     "links": [

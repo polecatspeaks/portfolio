@@ -2,6 +2,11 @@ export type ResumeSchema = {
   name: string;
   tagline: string;
   summary: string;
+  // SEO copy (search snippets + structured data). Short restatements of claims
+  // already made in this file or data/private-projects.json - never a new
+  // claim (Laws 1 and 3).
+  // Descriptions are capped at 160 chars, roughly where Google truncates.
+  seo: { jobTitle: string; homeDescription: string; experienceDescription: string };
   contact: { email: string; links: string[] };
   workHistory: Array<{
     employer: string;
@@ -30,6 +35,13 @@ export function validateResume(input: unknown): ResumeSchema {
   if (typeof r?.name !== 'string' || r.name.trim() === '') fail('name');
   if (typeof r?.tagline !== 'string' || r.tagline.trim() === '') fail('tagline');
   if (typeof r?.summary !== 'string') fail('summary');
+  const seo = r.seo as Record<string, unknown>;
+  for (const key of ['jobTitle', 'homeDescription', 'experienceDescription']) {
+    const value = seo?.[key];
+    if (typeof value !== 'string' || value.trim() === '' || value.length > 160) {
+      fail(`seo.${key}`);
+    }
+  }
   const contact = r.contact as Record<string, unknown>;
   if (typeof contact?.email !== 'string') fail('contact.email');
   if (!Array.isArray(contact?.links) || !contact.links.every((l) => typeof l === 'string')) {

@@ -34,6 +34,11 @@ export const metadata: Metadata = {
     template: '%s · Christopher Mann',
   },
   description: 'Personal portfolio and resume site for Christopher Mann - DevOps & MLOps engineering.',
+  // Large preview card on X; the image itself comes from app/twitter-image.tsx.
+  // Pages don't set `twitter`, so they all inherit this. (No canonical here: an
+  // `alternates.canonical` in the root layout would be inherited by every page
+  // and point them all at "/" - each page sets its own instead.)
+  twitter: { card: 'summary_large_image' },
 };
 
 // Mobile browser chrome matches the page background (WIG dark-mode rule);

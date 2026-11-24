@@ -26,3 +26,35 @@ test('root layout applies the generated font CSS variables to the html or body e
   expect(source).toMatch(/variable:\s*['"]--font-jetbrains-mono['"]/);
   expect(source).toMatch(/\.variable/);
 });
+
+test('root layout asks for the large X/Twitter preview card, and does NOT set a canonical every page would inherit (SEO pass)', () => {
+  const source = require('fs').readFileSync(require.resolve('./layout.tsx'), 'utf8');
+  expect(source).toMatch(/card:\s*['"]summary_large_image['"]/);
+  expect(source).not.toMatch(/canonical:/);
+});
+
+test('every route has its own canonical URL (SEO pass)', () => {
+  const fs = require('fs');
+  const pages: Record<string, RegExp> = {
+    './page.tsx': /canonical:\s*['"]\/['"]/,
+    './experience/page.tsx': /canonical:\s*['"]\/experience['"]/,
+    './projects/page.tsx': /canonical:\s*['"]\/projects['"]/,
+    './blog/page.tsx': /canonical:\s*['"]\/blog['"]/,
+    './blog/[slug]/page.tsx': /canonical:\s*`\/blog\/\$\{post\.slug\}`/,
+  };
+  for (const [file, pattern] of Object.entries(pages)) {
+    expect(fs.readFileSync(require.resolve(file), 'utf8')).toMatch(pattern);
+  }
+});
+
+test('every subpage that overrides openGraph re-attaches the share image (Next drops the inherited file-based one otherwise)', () => {
+  const fs = require('fs');
+  for (const file of ['./experience/page.tsx', './projects/page.tsx', './blog/page.tsx', './blog/[slug]/page.tsx']) {
+    expect(fs.readFileSync(require.resolve(file), 'utf8')).toMatch(/images:\s*\[OG_IMAGE\]/);
+  }
+});
+
+test('blog post og article:author is a profile URL, not a display name (ogp.me)', () => {
+  const source = require('fs').readFileSync(require.resolve('./blog/[slug]/page.tsx'), 'utf8');
+  expect(source).toMatch(/authors:\s*\[`\$\{SITE_URL\}\/`\]/);
+});

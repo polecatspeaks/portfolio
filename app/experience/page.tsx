@@ -1,17 +1,27 @@
 import type { Metadata } from 'next';
 import { getResume } from '../../lib/resume';
+import { OG_IMAGE } from '../../lib/seo';
 import Reveal from '../components/Reveal';
 import styles from './page.module.css';
 
-export const metadata: Metadata = {
-  title: 'Experience',
-  description: 'Professional experience and education history.',
-  openGraph: {
-    title: 'Experience · Christopher Mann',
-    description: 'Professional experience and education history.',
-    type: 'website',
-  },
-};
+// SEO pass: description is resume.seo.experienceDescription (resume data,
+// Law 3), so it's computed rather than a static object.
+export function generateMetadata(): Metadata {
+  const resume = getResume();
+  return {
+    title: 'Experience · DevOps & MLOps',
+    description: resume.seo.experienceDescription,
+    alternates: { canonical: '/experience' },
+    openGraph: {
+      title: `Experience · DevOps & MLOps · ${resume.name}`,
+      description: resume.seo.experienceDescription,
+      type: 'website',
+      url: '/experience',
+      images: [OG_IMAGE],
+      siteName: resume.name,
+    },
+  };
+}
 
 // v2.1 (issue #18): story-per-job. The plain-register headline leads, the
 // corporate title and dates become metadata, the story carries the page, and
