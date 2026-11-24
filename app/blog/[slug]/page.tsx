@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { formatDate, getPost, loadPosts } from '../../../lib/blog.server';
 import { getResume } from '../../../lib/resume';
-import { blogPostingJsonLd, OG_IMAGE, serializeJsonLd } from '../../../lib/seo';
+import { blogPostingJsonLd, OG_IMAGE, serializeJsonLd, SITE_URL } from '../../../lib/seo';
 import styles from '../blog.module.css';
 
 // Every post is generated at build time; an unknown slug is a 404, never a
@@ -34,7 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `/blog/${post.slug}`,
       images: [OG_IMAGE],
       siteName: 'Christopher Mann',
-      authors: ['Christopher Mann'],
+      // article:author is a profile URL per ogp.me, not a display name; the
+      // home page is the og:type=profile page for the author.
+      authors: [`${SITE_URL}/`],
       publishedTime: post.date,
       tags: post.tags,
     },

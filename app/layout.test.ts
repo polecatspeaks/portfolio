@@ -53,3 +53,8 @@ test('every subpage that overrides openGraph re-attaches the share image (Next d
     expect(fs.readFileSync(require.resolve(file), 'utf8')).toMatch(/images:\s*\[OG_IMAGE\]/);
   }
 });
+
+test('blog post og article:author is a profile URL, not a display name (ogp.me)', () => {
+  const source = require('fs').readFileSync(require.resolve('./blog/[slug]/page.tsx'), 'utf8');
+  expect(source).toMatch(/authors:\s*\[`\$\{SITE_URL\}\/`\]/);
+});
