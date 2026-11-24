@@ -3,7 +3,8 @@ export type ResumeSchema = {
   tagline: string;
   summary: string;
   // SEO copy (search snippets + structured data). Short restatements of claims
-  // already made elsewhere in this file - never a new claim (Laws 1 and 3).
+  // already made in this file or data/private-projects.json - never a new
+  // claim (Laws 1 and 3).
   // Descriptions are capped at 160 chars, roughly where Google truncates.
   seo: { jobTitle: string; homeDescription: string; experienceDescription: string };
   contact: { email: string; links: string[] };

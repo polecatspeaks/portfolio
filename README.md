@@ -27,7 +27,7 @@ exception is the blog: dated first-person posts in `content/blog/`, written per
 
 | What | File | Notes |
 |---|---|---|
-| Resume (home and experience pages) | `data/resume.json` | Validated by `lib/resume.schema.ts` at build time. Its `seo` block (job title, home and experience search descriptions, max 160 chars each) feeds page titles, meta descriptions, the link-preview card and the schema.org Person data (`lib/seo.ts`); it restates resume claims, never adds one. |
+| Resume (home and experience pages) | `data/resume.json` | Validated by `lib/resume.schema.ts` at build time. Its `seo` block (job title, home and experience search descriptions, max 160 chars each) feeds page titles, meta descriptions, the link-preview card and the schema.org Person data (`lib/seo.ts`); it restates resume claims (plus STAR, from the project data below), never adds one. |
 | Public projects | `data/featured-repos.json` | An allow-list of `owner/name` repos with an owner-written headline and story. Description, language and URL come live from the GitHub API at build time (`lib/github.server.ts`). The build fails if a listed repo is private, a fork, archived, or does not match its name. |
 | Private projects | `data/private-projects.json` | A summary and screenshots instead of a link (Law 2). Screenshots live in `public/screenshots/` and must exist on disk. Each entry carries `lastVerifiedSha`; the build fails if the repo's default-branch HEAD no longer matches it. |
 

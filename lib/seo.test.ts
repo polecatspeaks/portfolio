@@ -39,3 +39,13 @@ test('BlogPosting uses absolute URLs and the post date', () => {
   expect(ld.datePublished).toBe('2026-11-23');
   expect(ld.author.name).toBe('Ada');
 });
+
+test('home description mentions STAR only because STAR is a real project in the project data (Laws 2 and 3)', () => {
+  const { seo } = getResume();
+  const priv = require('../data/private-projects.json') as Array<{ repo: string; story: string }>;
+  const star = priv.find((p) => p.repo === 'polecatspeaks/STAR');
+  expect(seo.homeDescription).toMatch(/STAR/);
+  expect(star).toBeDefined();
+  expect(star!.story).toMatch(/sim-racing/);
+  expect(star!.story).toMatch(/AI strategy assistant/);
+});
